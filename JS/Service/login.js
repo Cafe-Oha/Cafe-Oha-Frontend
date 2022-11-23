@@ -16,16 +16,32 @@ function closePopup(){
     popup.style.transform = "translate(0%,0%) scale(0.1)";
 }
 
+
+//grab inputs from user
+function getLoginInputs() {
+    let usarnameInput = document.getElementById("username").value;
+    let passwordInput = document.getElementById("password").value;
+
+    return [usarnameInput, passwordInput];
+}
+let inputs = getLoginInputs();
+
+
+
+
 //login validator
-let usarnameInput = "admin";
-let passwordInput = "passs";
-const usarname = "admin";
+usarnameInput = inputs[0];
+passwordInput = inputs[1];
+const usarname = ["admin", "stuff"];
 let password = "pass";
 let credentials = false;
 
 
+console.log(usarnameInput);
+
+
 function loginValidator(){
-    if (usarnameInput == usarname && password==passwordInput){
+    if (usarname.includes(usarnameInput) && password==passwordInput){
         window.location='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/welcomeTestPage.html?_ijt=8d9dv1up1760cld8qlbqks9efe&_ij_reload=RELOAD_ON_SAVE';
         credentials = true;
     } else {
