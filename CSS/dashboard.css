@@ -17,27 +17,11 @@
     flex-direction: inherit;
     cursor:pointer;
 }
-.sidebar-link1{
-    height: 75px;
-    display:flex;
-    justify-content:center;
-    align-items: center;
-    flex-direction: inherit;
-    cursor:pointer;
-}
-.sidebar-link:hover,
-.sidebar-link1:hover{
+
+.sidebar-link:hover{
     background-color: rgb(235, 235, 235);
 }
-.sidebar-link img{
-    height:24px;
-    margin-bottom:4px;
-}
-.sidebar-link div{
-    font-family:futura-lt-w01-book,sans-serif;
-    font-size: 16px;
 
-}
 body{
     height: 3000px;
     margin:0;
@@ -46,11 +30,7 @@ body{
     padding-right: 24px;
     background-color:rgb(236, 236, 236);
 }
-p{
-    font-family: futura-lt-w01-book,sans-serif;
-    margin-top:0;
-    margin-bottom:0;
-}
+
 
 .header{
     height:75px;
@@ -82,9 +62,8 @@ p{
     margin-left:15px;
     transition: box-shadow 0.15s;
 }
-.cafe-logo:hover{
-    box-shadow: 15px, 15px, 20px rgba(0,0,0,0.5);
-}
+
+
 .middle-section{
     flex:1;
     margin-left:50px;
@@ -163,4 +142,34 @@ p{
     align-items:center;
     justify-content:space-between;
     flex-shrink: 0;
+}
+
+
+
+
+
+/* Style the button that is used to open and close the collapsible content */
+#collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, #collapsible:hover {
+    background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
 }
