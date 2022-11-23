@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="../CSS/login.css">
+
 </head>
 <body>
 <div class="login">
@@ -29,7 +30,7 @@
 
             <label for="password">Password:</label>
             <br>
-            <input type="text" id="password"><br><br>
+            <input type="password" id="password"><br><br>
         </h2>
     </div>
 
@@ -40,8 +41,9 @@
     </div>
 
     <div class="button">
-        <button class="button" onclick="closePopup()">Cancel</button>
-        <button class="button" onclick="getLoginInputs(); loginValidator();" >Confirm</button>
+        <button class="button" id= "cancelBtn" onclick="closePopup()">Cancel</button>
+        <button class="button" id ="confirmBtn" onclick="loginValidator();" >Confirm</button>
+        <!--   <button class="button" id ="testBtn" onclick="privateWebpage();" >ConsoleTest</button>    -->
     </div>
 
 </div>
