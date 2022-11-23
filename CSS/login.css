@@ -29,3 +29,7 @@ body{
     margin-top: -10%;
     border: solid;
 }
+.wrongCredentials{
+    font-size: 15px;
+    color: red;
+}
