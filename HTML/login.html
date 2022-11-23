@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="../CSS/login.css">
-    <script src="../JS/Service/login.js"></script>
 </head>
 <body>
 <div class="login">
@@ -17,7 +16,10 @@
 </div>
 <div class="popup" id="popup">
 
-    <h1>Insert your credentials</h1>
+    <div>
+        <h1>Insert your credentials</h1>
+    </div>
+
 
     <div class="input_class">
         <h2>
@@ -31,11 +33,18 @@
         </h2>
     </div>
 
+    <div>
+        <p class = wrongCredentials id="wrongCredentials">
+        Wrong credentials, please try again.
+    </p>
+    </div>
+
     <div class="button">
         <button class="button" onclick="closePopup()">Cancel</button>
-        <button class="button" onclick="closePopup()">Confirm</button>
+        <button class="button" onclick="loginValidator()">Confirm</button>
     </div>
 
 </div>
+<script src="../JS/Service/login.js"></script>
 </body>
 </html>
