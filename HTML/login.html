@@ -1,10 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="../CSS/login.css">
+
 </head>
 <body>
+<div class="login">
+    <img class="logo" src="cafeOhaLogo.webp" alt="">
+    <p class="title">Inventory System</p>
+    <button class="button" onclick="openPopup()">Login</button>
+</div>
+<div class="popup" id="popup">
 
+    <div>
+        <h1>Insert your credentials</h1>
+    </div>
+
+
+    <div class="input_class">
+        <h2>
+            <label for="username">Username:</label>
+            <br>
+            <input type="text" id="username"><br><br>
+
+            <label for="password">Password:</label>
+            <br>
+            <input type="password" id="password"><br><br>
+        </h2>
+    </div>
+
+    <div>
+        <p class = wrongCredentials id="wrongCredentials">
+        Wrong credentials, please try again.
+    </p>
+    </div>
+
+    <div class="button">
+        <button class="button" id= "cancelBtn" onclick="closePopup()">Cancel</button>
+        <button class="button" id ="confirmBtn" onclick="loginValidator();" >Confirm</button>
+        <!--   <button class="button" id ="testBtn" onclick="privateWebpage();" >ConsoleTest</button>    -->
+    </div>
+
+</div>
+<script src="../JS/Service/login.js"></script>
 </body>
 </html>
