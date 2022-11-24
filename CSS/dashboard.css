@@ -1,26 +1,4 @@
-.sidebar{
-    position:fixed;
-    left:0;
-    bottom:0;
-    top: 75px;
-    background-color: white;
-    width: 100px;
-    z-index:200;
-    padding-top:5px;
-    padding-left: 10px;
-}
-.sidebar-link{
-    height: 75px;
-    display:flex;
-    justify-content:center;
-    align-items: center;
-    flex-direction: inherit;
-    cursor:pointer;
-}
 
-.sidebar-link:hover{
-    background-color: rgb(235, 235, 235);
-}
 
 body{
     height: 3000px;
@@ -144,12 +122,8 @@ body{
     flex-shrink: 0;
 }
 
-
-
-
-
-
 .sidebar{
+    position: fixed;
     left:0;
     bottom:0;
     top: 75px;
@@ -204,7 +178,7 @@ nav ul li a:hover{
 }
 nav ul ul{
     position:static;
-
+   /* display: none;*/
 }
 nav ul .feat-show.show{
     display:block;
@@ -352,4 +326,8 @@ body{
     align-items:center;
     justify-content:space-between;
     flex-shrink: 0;
+}
+.fas{
+    height: 100px;
+    width: 100px;
 }
