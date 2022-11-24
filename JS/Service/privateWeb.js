@@ -1,26 +1,13 @@
-import {loginValidator} from 'C:\Users\Bruger\Desktop\Code\CafeOha\Cafe-Oha-Frontend\HTML\login.html';
-import {usernameInput} from 'C:\Users\Bruger\Desktop\Code\CafeOha\Cafe-Oha-Frontend\HTML\login.html';
 
-let seeCredentials;
+//import isLogedIn from login
+
+let isLogedIn = true;
 
 (function makeItInvisible(){
-    let see = document.getElementsByTagName("p");
-
-    see.style.visibility = "visible";
-}());
-
-
-
-/*(function privateWebpage(){
-    let showPage = document.getElementsByTagName("html");
-    seeCredentials = loginValidator();
-
-
-    console.log(seeCredentials);
-    if (seeCredentials) {
-        showPage.style.visibility = "visible";
+    document.getElementsByTagName("body")[0].style.visibility = "hidden";
+    if(isLogedIn) {
+        document.getElementsByTagName("body")[0].style.visibility = "visible";
     }else{
-        window.location.assign("http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/login.html?_ijt=80vnr7pb9hql1u2l6ckf4mfsuq&_ij_reload=RELOAD_ON_SAVE");
-        showPage.style.visibility = "hidden";
+        window.location.replace("http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/login.html?_ijt=l2gukli4o0nak6ag5lv2ghcjof&_ij_reload=RELOAD_ON_SAVE");
     }
-}());*/
+}());
