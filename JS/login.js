@@ -1,4 +1,3 @@
-
 let wrongCredentials = document.getElementById("wrongCredentials");
 let popup = document.getElementById("popup");
 let userType;
@@ -57,7 +56,7 @@ function getLoginInputs() {
         userType  = usarnameInput;
         isLogedIn = true;
         cleanInputFields();
-        //window.location='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/welcomeTestPage.html?_ijt=8d9dv1up1760cld8qlbqks9efe&_ij_reload=RELOAD_ON_SAVE';
+        window.location='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/welcomeTestPage.html?_ijt=8d9dv1up1760cld8qlbqks9efe&_ij_reload=RELOAD_ON_SAVE';
 
     } else {
         userType = "unknown";
@@ -74,3 +73,4 @@ function getLoginInputs() {
 
      return [userType,isLogedIn];
 }
+
