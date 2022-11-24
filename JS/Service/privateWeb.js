@@ -1,5 +1,4 @@
 
-//import isLogedIn from login
 
 let isLogedIn = true;
 
