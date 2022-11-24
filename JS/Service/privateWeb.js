@@ -3,7 +3,7 @@ import {usernameInput} from 'C:\Users\Bruger\Desktop\Code\CafeOha\Cafe-Oha-Front
 
 let seeCredentials;
 
-(function makeItVisible(){
+(function makeItInvisible(){
     let see = document.getElementsByTagName("p");
 
     see.style.visibility = "visible";
