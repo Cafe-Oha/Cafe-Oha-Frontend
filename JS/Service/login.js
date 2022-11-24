@@ -1,7 +1,7 @@
 
 let wrongCredentials = document.getElementById("wrongCredentials");
 let popup = document.getElementById("popup");
-let credentials = false;
+let isLogedIn = false;
 //let exportedCredentials = false;
 let inputs;
 let usarnameInput;
@@ -56,40 +56,71 @@ function getLoginInputs() {
     const usarname = ["admin", "stuff"];
     let password = "pass";
 
-
+    //direct to the main page
     if (usarname.includes(usarnameInput) && password==passwordInput){
+        let userType  = usarnameInput;
         window.location='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/welcomeTestPage.html?_ijt=8d9dv1up1760cld8qlbqks9efe&_ij_reload=RELOAD_ON_SAVE';
-        credentials = true;
+        isLogedIn = true;
         cleanInputFields();
+        return [userType,isLogedIn];
     } else {
+        //present wrong credentials message
         wrongCredentials.style.visibility = "visible"
 
         //message timeout
         setTimeout(() => {
             wrongCredentials.style.visibility = "hidden";
         }, 1000);
-        credentials = false;
+        isLogedIn = false;
+        return isLogedIn;
     }
-    return credentials;
+
 }
 
 
 
 
 
-function privateWebpage(){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*(function seeConsole()
+{
+    let arr = loginValidator();
+
+    for(let i = 0; i < arr.length; i++){
+        console.log(arr[i]);
+    }
+    console.log(loginValidator());
+
+}());*/
+
+/*function privateWebpage(){
     let showPage = document.getElementsByTagName("html");
-    credentials = loginValidator();
+    isLogedIn = loginValidator();
 
 
-    console.log(credentials);
-    if (credentials) {
+    console.log(isLogedIn);
+    if (isLogedIn) {
         showPage.style.visibility = "visible";
     }else{
         window.location.assign("http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/login.html?_ijt=80vnr7pb9hql1u2l6ckf4mfsuq&_ij_reload=RELOAD_ON_SAVE");
         showPage.style.visibility = "hidden";
     }
-}
+}*/
 
 
 //export {loginValidator};
