@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,110 +8,55 @@
     <title>Inventory</title>
 
     <link rel="stylesheet" href="../CSS/inventory.css">
-    <link rel="stylesheet" href="../CSS/dashboard.css">
-    <link rel="stylesheet" href="../resources">
 
+    <script src="../JS/inventory.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 </head>
-<body>
-
-<div id="inventoryPage">
-
-    <h1> Inventory </h1>
-    <!--DASHBOARD-->
-    <div class="header">
-        <div class="left-section">
-            <a href="../HTML/login.html">
-                <img class="cafe-logo" src="../resources/oha_logo1.jpg"></a>
-        </div>
-        <div class="middle-section">
-
-        </div>
-        <div class="right-section">
-            <input class="search-bar" type="text"
-                   placeholder="Search">
-            <button class="search-button">
-                <img class="search-icon"
-                     src="../resources/search.svg">
-                <div class="tooltip">Search</div>
-            </button>
-
-        </div>
-    </div>
-    <div class="sidebar">
-        <div class="sidebar-link">
-            <div>
-                Modules
-            </div>
-        </div>
-        <div class="sidebar-link">
-            <div>Menu Item</div>
-        </div>
-        <div class="sidebar-link">
-
-            <div>Inventory</div>
-        </div>
-        <div class="sidebar-link">
-
-            <div>Profit</div>
-        </div>
-        <div class="sidebar-link">
-
-            <div>Sales</div>
-        </div>
-        <div class="sidebar-link1">
-
-            <div>Cost of Goods</div>
-        </div>
-        <div class="sidebar-link">
-
-            <div>Manage User</div>
-        </div>
-    </div>
-
-
-
-    <!--INVENTORY-->
-
-    <table class="sortable styled-table">
-        <thead>
-        <tr>
-            <th>Ingredients</th>
-            <th>Quantity</th>
-            <th>Unit</th>
-        </tr>
-        </thead>
-
-
-        <tbody>
-        <tr class="item">
-            <td>Flour</td>
-            <td>20</td>
-            <td>KG</td>
-        </tr>
-
-        <tr class="item">
-            <td>Oil</td>
-            <td>3</td>
-            <td>L</td>
-        </tr>
-
-
-        <!-- etc etc -->
-
-
-
-        </tbody>
-
-    </table>
-
-
-</div>
-
-
 
 <script src="../JS/inventory.js"></script>
 
-<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+<body>
+<div class="content">
 
+    <h1> Inventory </h1>
+
+    <table id="inventoryTable" class="sortable styled-table">
+        <thead>
+        <tr>
+            <th id="ing-th">Ingredients</th>
+            <th id="quant-th">Quantity</th>
+            <th id="unit-th">Unit</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <!--
+                  <tr class="item">
+                      <td>Flour</td>
+                      <td>20</td>
+                      <td>KG</td>
+                  </tr>
+
+            -->
+        <!-- etc etc -->
+
+        </tbody>
+    </table>
+
+    <input  id="invAddBtn" class="form-open-button btns" type="button" value="Add to Inventory" onclick="openForm();"></br>
+
+    <form id="addInvForm" onsubmit="addToInventory(); return false; " required>
+        <label>Name: <input type="text" id="iid" placeholder="Enter ingredient name" required/> </label> </br>
+        <label>Quantity: <input type="number" id="iquantity" min=0 placeholder="Enter quantity" pattern="[0-9] {5}" required/> </label></br>
+        <label>Unit: <input type="text" id="iunit" placeholder="Enter type of quantity" required/> </label></br>
+
+        <input class="btns close-btn" type="button"  value="Close" onclick="closeForm()"/>
+        <input class="btns save-btn" type="submit" value="Save"></label>
+
+    </form>
+
+</div>
 </body>
+
 </html>
