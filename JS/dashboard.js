@@ -1,7 +1,7 @@
-import { getAll  } from "./Service/API_calls.js";
 
-const nav = document.querySelector('.sidebar')
-fetch('/HTML/dashboard')
+
+const nav = document.querySelector('.navbar')
+fetch('navbar.html')
 .then(res=>res.text())
 .then(data=>{
     nav.innerHTML=data
