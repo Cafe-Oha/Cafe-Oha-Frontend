@@ -201,3 +201,7 @@ nav ul ul li a span{
 nav ul ul li a span.rotate{
     transform: translateY(-50%) rotate(-180deg);
 }
+.table{
+    padding-left: 50px;
+
+}
