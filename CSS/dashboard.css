@@ -154,6 +154,7 @@ nav ul li a{
     color: #ffffff;
     text-decoration: none;
     font-size: 16px;
+    font-family: futura-lt-w01-book, sans-serif;
     padding-left:4px;
     font-weight: 500;
     display: block;
@@ -173,7 +174,7 @@ nav ul li a:hover{
 }
 nav ul ul{
     position:static;
-   /* display: none;*/
+    /* display: none;*/
 }
 nav ul .feat-show.show{
     display:block;
