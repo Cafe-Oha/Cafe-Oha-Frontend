@@ -46,14 +46,27 @@
 
     <input  id="invAddBtn" class="form-open-button btns" type="button" value="Add to Inventory" onclick="openForm();"></br>
 
-    <form id="addInvForm" onsubmit="addToInventory(); return false; " required>
-        <label>Name: <input type="text" id="iid" placeholder="Enter ingredient name" required/> </label> </br>
-        <label>Quantity: <input type="number" id="iquantity" min=0 placeholder="Enter quantity" pattern="[0-9] {5}" required/> </label></br>
-        <label>Unit: <input type="text" id="iunit" placeholder="Enter type of quantity" required/> </label></br>
+<!--    <form id="addInvForm" onsubmit="addToInventory(); return false; " required>-->
+<!--        <label>Name: <input type="text" id="iid" placeholder="Enter ingredient name" required/> </label> </br>-->
+<!--        <label>Quantity: <input type="number" id="iquantity" min=0 placeholder="Enter quantity" pattern="[0-9] {5}" required/> </label></br>-->
+<!--        <label>Unit: <input type="text" id="iunit" placeholder="Enter type of quantity" required/> </label></br>-->
 
+<!--        <input class="btns close-btn" type="button"  value="Close" onclick="closeForm()"/>-->
+<!--        <input class="btns save-btn" type="submit" value="Save"></label>-->
+
+<!--    </form>-->
+    <form id="addInvForm" onsubmit="addToInventory()">
+        <label>Name:
+            <input name="name" type="text" placeholder="Enter ingredient name">
+        </label>
+        <label>Quantity:
+            <input name="quantity" type="text" placeholder="Enter quantity">
+        </label>
+        <label>Unit:
+            <input name="unit" type="text" placeholder="Enter type of quantity">
+        </label>
         <input class="btns close-btn" type="button"  value="Close" onclick="closeForm()"/>
-        <input class="btns save-btn" type="submit" value="Save"></label>
-
+        <input class="btns save-btn" type="submit" value="Save">
     </form>
 
 </div>

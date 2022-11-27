@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+<h1> Inventory </h1>
+
+<!-- idk why it works and everything the same on inventory.html doesnt -->
+
+<form id="addInvForm">
+    <label>Name:
+        <input name="name" type="text" placeholder="Enter ingredient name">
+    </label>
+    <label>Quantity:
+        <input name="quantity" type="text" placeholder="Enter quantity">
+    </label>
+    <label>Unit:
+        <input name="unit" type="text" placeholder="Enter type of quantity">
+    </label>
+    <input class="btns close-btn" type="button"  value="Close" onclick="closeForm()"/>
+    <input class="btns save-btn" type="submit" value="Save">
+</form>
+
+
+    <script src="../JS/inv.js"></script>
+</body>
+</html>
