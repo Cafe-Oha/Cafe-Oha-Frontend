@@ -7,17 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link rel="stylesheet" href="../CSS/login.css">
-    <script src="../JS/login.js"></script>
+
 </head>
 <body>
 <div class="login">
-    <img class="logo" src="cafeOhaLogo.webp" alt="">
+    <br>
+    <br>
+    <br>
+    <img class="logo" src="../resources/oha_logo1.jpg" alt="Logo">
     <p class="title">Inventory System</p>
     <button class="button" onclick="openPopup()">Login</button>
 </div>
 <div class="popup" id="popup">
 
-    <h1>Insert your credentials</h1>
+    <div>
+        <h1>Insert your Credentials</h1>
+    </div>
+
 
     <div class="input_class">
         <h2>
@@ -27,15 +33,23 @@
 
             <label for="password">Password:</label>
             <br>
-            <input type="text" id="password"><br><br>
+            <input type="password" id="password"><br><br>
         </h2>
     </div>
 
-    <div class="button">
-        <button class="button" onclick="closePopup()">Cancel</button>
-        <button class="button" onclick="closePopup()">Confirm</button>
+    <div>
+        <p class = wrongCredentials id="wrongCredentials">
+        Wrong credentials, please try again.
+    </p>
+    </div>
+
+    <div>
+        <button class="button" id= "cancelBtn" onclick="closePopup()">Cancel</button>
+        <button class="button" id ="confirmBtn" onclick="loginValidator();" >Confirm</button>
     </div>
 
 </div>
+<script src="../JS/login.js"></script>
+
 </body>
 </html>

@@ -56,7 +56,7 @@ function getLoginInputs() {
         userType  = usarnameInput;
         isLogedIn = true;
         cleanInputFields();
-        window.location='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/welcomeTestPage.html?_ijt=8d9dv1up1760cld8qlbqks9efe&_ij_reload=RELOAD_ON_SAVE';
+        window.location='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/sales.html?_ijt=evnldkdj4u6rf0ofn1ri4djbtv&_ij_reload=RELOAD_ON_SAVE';
 
     } else {
         userType = "unknown";
