@@ -1,7 +1,9 @@
 let wrongCredentials = document.getElementById("wrongCredentials");
 let popup = document.getElementById("popup");
 let userType;
-let isLogedIn;
+////.......................................................////.....................................................////
+let isLogedIn = false;                                   //To DB//
+////.......................................................////.....................................................////
 let inputs;
 let usarnameInput;
 let passwordInput;
@@ -49,7 +51,10 @@ function getLoginInputs() {
     usarnameInput = inputs[0];
     passwordInput = inputs[1];
     const usarname = ["admin", "stuff"];
-    let password = "pass";//from db
+
+     ////.......................................................////.....................................................////
+    let password = "pass";                                   //From DB//
+     ////.......................................................////.....................................................////
 
     //direct to the main page
     if (usarname.includes(usarnameInput) && password==passwordInput){
@@ -71,6 +76,9 @@ function getLoginInputs() {
         }, 1000);
     }
 
-     return [userType,isLogedIn];
+     ////.......................................................////.....................................................////
+     return [userType,isLogedIn];                            //To DB//
+    ////.......................................................////.....................................................////
+
 }
 
