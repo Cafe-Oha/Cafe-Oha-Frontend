@@ -1,3 +1,5 @@
+import * as db from "../JS/Service/API_calls";
+
 let wrongCredentials = document.getElementById("wrongCredentials");
 let popup = document.getElementById("popup");
 let userType;
