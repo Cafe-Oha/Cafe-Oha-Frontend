@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- CHRIS WORKING -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inventory</title>
+
+    <link rel="stylesheet" href="../CSS/inv.css">
+
+    <script src="../JS/inv.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+</head>
+
+<script src="../JS/inv.js"></script>
+
+<body>
+<div class="content">
+
+    <h1> Inventory </h1>
+
+    <table id="inventoryTable" class="sortable styled-table">
+        <thead>
+        <tr>
+            <th class="ing-th">Ingredients</th>
+            <th class="quant-th">Quantity</th>
+            <th class="unit-th">Unit</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <!--
+                  <tr class="item">
+                      <td>Flour</td>
+                      <td>20</td>
+                      <td>KG</td>
+                  </tr>
+
+            -->
+        <!-- etc etc -->
+
+        </tbody>
+    </table>
+
+    <input  id="invAddBtn" class="form-open-button btns" type="button" value="Add to Inventory" onclick="openForm();"></br>
+
+    <form id="addInvForm" onsubmit="addToInventory(); return false; " required>
+        <label>Name: <input name="name" type="text" id="iid" placeholder="Enter ingredient name" required/> </label> </br>
+        <label>Quantity: <input name="quantity" type="number" id="iquantity" min=0 placeholder="Enter quantity" pattern="[0-9] {5}" required/> </label></br>
+        <label>Unit: <input name="unit" type="text" id="iunit" placeholder="Enter type of quantity" required/> </label></br>
+
+        <input class="btns close-btn" type="button"  value="Close" onclick="closeForm()"/>
+        <input class="btns save-btn" type="submit" value="Save"></label>
+
+    </form>
+
+</div>
+</body>
+
+</html>
