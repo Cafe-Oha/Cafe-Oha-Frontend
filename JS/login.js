@@ -48,15 +48,15 @@ function getLoginInputs() {
 
     usarnameInput = inputs[0];
     passwordInput = inputs[1];
-    const usarname = ["admin", "stuff"];
+    const username = ["admin", "stuff"];
     let password = "pass";//from db
 
     //direct to the main page
-    if (usarname.includes(usarnameInput) && password==passwordInput){
+    if (username.includes(usarnameInput) && password==passwordInput){
         userType  = usarnameInput;
         isLogedIn = true;
         cleanInputFields();
-        window.location='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/welcomeTestPage.html?_ijt=8d9dv1up1760cld8qlbqks9efe&_ij_reload=RELOAD_ON_SAVE';
+        window.location='http://localhost:63342/Cafe-Oha-Frontend/HTML/dashboardFinal.html?_ijt=f883rnq44kaftkdbmlr3sgrpbq&_ij_reload=RELOAD_ON_SAVE';
 
     } else {
         userType = "unknown";

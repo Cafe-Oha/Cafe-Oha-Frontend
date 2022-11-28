@@ -23,3 +23,17 @@ function openForm() {
 function closeForm() {
     document.getElementById("addInvForm").style.display = "none";
 }
+
+//display all ingredients in table
+fetch('http://localhost:8080/ingredients')
+    .then(res => {
+        return res.json();
+    }).then(data => {
+    data.forEach(ingredient => {
+        const markup = <td>${ingredient.name}</td>
+        <td>${ingredient.quantity}</td>
+        <td>${ingredient.unit}</td>;
+        document.querySelector('table').insertAdjacentHTML('beforeend', markup);
+    });
+})
+.catch(err => console.error(err));
