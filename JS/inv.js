@@ -42,12 +42,11 @@ fetch('http://localhost:8080/ingredients')
 
 //adding ingredients
 formAdd.addEventListener('submit', event => {
-    event.preventDefault();
 
     const formData = new FormData(formAdd);
     const data = Object.fromEntries(formData);
 
-    fetch('http://localhost:8080/ingredients',{
+    fetch('http://localhost:8080/ingredients/',{
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
@@ -59,9 +58,12 @@ formAdd.addEventListener('submit', event => {
         .catch(error => console.log(error));
 });
 
-deleteBtn.addEventListener('click',() =>{
-
-    fetch('http://localhost:8080/ingredients',{
+//delete by name
+deleteBtn.addEventListener('click',(name) =>{
+    //gets name value from input field
+    name=document.querySelector('#editName').value;
+    console.log(document.querySelector('#editName').value);
+    fetch('http://localhost:8080/ingredients/delete/'+name,{
         method: 'DELETE'
     })
         .then(response => response.json())
