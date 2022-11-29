@@ -6,6 +6,8 @@ const editInvForm = document.querySelector('#editInvForm');
 const deleteBtn = document.querySelector('#deleteBtn');
 const editBtn = document.querySelector('#editBtn');
 const editName = document.querySelector('#editName');
+const closeBtn = document.querySelector('.close-btn');
+const editInputs = document.querySelectorAll('.editInput');
 
 
 //display all ingredients in table
@@ -21,11 +23,16 @@ fetch('http://localhost:8080/ingredients')
     });
 
     //click on cell to display cancel or edit
-    document.querySelectorAll('td')
-        .forEach(td => td.addEventListener("click", function() {
-            console.log("clicked on cell");
+    document.querySelectorAll('tr')
+        .forEach(tr => tr.addEventListener("click", function() {
             toggleHide(editInvForm);
-            editName.value=td.valueOf();
+
+            //displays edited values in inputs
+            editInputs.forEach((element,i) => {
+                element.value = tr.cells[i].innerHTML;
+                i++;
+            })
+
             toggleHide(editBtn);
             toggleHide(deleteBtn);
         }));
@@ -69,6 +76,10 @@ deleteBtn.addEventListener('click',() =>{
 openFormBtn.addEventListener('click', () => {
     toggleHide(formAdd);
 });
+closeBtn.addEventListener('click', () => {
+   toggleHide(formAdd);
+});
+
 
 //this function changes parameter's style to either block or none(visible or not)
 const toggleHide = function(btn){
@@ -79,3 +90,4 @@ const toggleHide = function(btn){
         btn.style.display = 'block';
     }
 }
+
