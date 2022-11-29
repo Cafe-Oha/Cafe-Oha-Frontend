@@ -91,9 +91,6 @@ fetch('http://localhost:8080/ingredients')
 
 
 
-
-
-
 "use strict"
 
 const formAdd = document.querySelector('#addInvForm');
