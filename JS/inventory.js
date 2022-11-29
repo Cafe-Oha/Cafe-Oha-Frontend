@@ -63,22 +63,29 @@ function closeForm() {
 
 
 //display all ingredients in table
-
 fetch('http://localhost:8080/ingredients')
     .then(res => {
         return res.json();
     }).then(data => {
-        data.forEach(ingredient => {
-            const markup = `<td>${ingredient.name}</td>
+    data.forEach(ingredient => {
+        const markup = `<td>${ingredient.name}</td>
                             <td>${ingredient.quantity}</td>
                             <td>${ingredient.unit}</td>`;
-            document.querySelector('table').insertAdjacentHTML('beforeend', markup);
-        });
-    })
+        document.querySelector('table').insertAdjacentHTML('beforeend', markup);
+    });
+    document.querySelectorAll('td')
+        .forEach(e => e.addEventListener("click", function() {
+            // Here, `this` refers to the element the event was hooked on
+            console.log("clicked")
+        }));
+})
     .catch(err => console.error(err));
 
 
+////
+document
+    .querySelector('tbody')
+    .addEventListener('click', ({ target }) => {
 
-
-
-
+        console.log("asdadas");
+    });

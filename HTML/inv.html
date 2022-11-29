@@ -4,12 +4,26 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="../CSS/inv.css">
 </head>
 <body>
+
 <h1> Inventory </h1>
 
 <!-- idk why it works and everything the same on inventory.html doesnt -->
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit</th>
+        </tr>
+    </thead>
+
+
+</table>
+
+<button id = "openFormBtn" type="button">Add Ingredient</button>
 
 <form id="addInvForm">
     <label>Name:
@@ -21,10 +35,25 @@
     <label>Unit:
         <input name="unit" type="text" placeholder="Enter type of quantity">
     </label>
-    <input class="btns close-btn" type="button"  value="Close" onclick="closeForm()"/>
+    <input class="btns close-btn" type="button"  value="Close"/>
     <input class="btns save-btn" type="submit" value="Save">
 </form>
 
+<form id="editInvForm">
+    <p></p>
+    <label>Name:
+        <input id="editName" name="name" type="text">
+    </label>
+    <label>Quantity:
+        <input id="editQuantity" name="quantity" type="text">
+    </label>
+    <label>Unit:
+        <input id = "editUnit" name="unit" type="text">
+    </label>
+
+    <button id = "deleteBtn" class="hide" type="button">Delete</button>
+    <button id = "editBtn" class="hide" type="button">Edit</button>
+</form>
 
     <script src="../JS/inv.js"></script>
 </body>
