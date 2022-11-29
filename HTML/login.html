@@ -6,10 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
+    <!--Global CSS-->
+    <link rel="stylesheet" href="../CSS/global.css">
+    <!--Login CSS-->
     <link rel="stylesheet" href="../CSS/login.css">
+
+
 
 </head>
 <body>
+<!--Login page-->
 <div class="login">
     <br>
     <br>
@@ -18,13 +24,14 @@
     <p class="title">Inventory System</p>
     <button class="button" onclick="openPopup()">Login</button>
 </div>
+<!--Popup-->
 <div class="popup" id="popup">
 
     <div>
         <h1>Insert your Credentials</h1>
     </div>
 
-
+    <!--Input-->
     <div class="input_class">
         <h2>
             <label for="username">Username:</label>
@@ -37,19 +44,25 @@
         </h2>
     </div>
 
+    <!--Wrong credentials message-->
     <div>
         <p class = wrongCredentials id="wrongCredentials">
         Wrong credentials, please try again.
     </p>
     </div>
 
+    <!--Popup buttons-->
     <div>
         <button class="button" id= "cancelBtn" onclick="closePopup()">Cancel</button>
         <button class="button" id ="confirmBtn" onclick="loginValidator();" >Confirm</button>
     </div>
 
 </div>
+
+<!--Login JS-->
 <script src="../JS/login.js"></script> <!--type ="module" -->
+<!--Utilities JS-->
+<script src="../JS/Service/Utilities.js"></script>
 
 </body>
 </html>
