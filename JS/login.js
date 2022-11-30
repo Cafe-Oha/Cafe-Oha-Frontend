@@ -11,6 +11,7 @@ let usarnameInput;
 let passwordInput;
 let inputSelector = '#username, #password';
 let elementID = ["username","password"];
+wrongCredentials.style.visibility = "hidden";
 
 //utilities.cleanInputFields()
 //utilities.openPopup()

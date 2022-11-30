@@ -1,36 +1,50 @@
 
-let buttonCreatInput = 'addButton';
-let menuItemName= ["chips","sandwich","soup","toast","salad"];
-input = menuItemName;
+
+
+let menuItemName= ["chips","sandwich","soup","toast","salad","apple pie"];
+
+
+//utilities.cleanInputFields()
 
 
 
-document.getElementById(buttonCreatInput).addEventListener('click', function() {
 
     let container = document.getElementById('inputContainer');
     container.innerHTML = "";
 
 
-    for (let i = 0; i < input.length; i++) {
-        let inputId = i.toString();
+    for (let i = 0; i < menuItemName.length; i++) {
 
-        let newText= document.createElement('p');
-        newText.textContent = input[i];
-        newText.className = "inputName";
-        newText.id ="textId"+inputId;
+        let newLable= document.createElement('label');
+        newLable.htmlFor = menuItemName[i];
+        newLable.textContent = menuItemName[i]+":";
+        newLable.style.float = "left";
+        newLable.style.width ="50%";
+        newLable.style.color = "rgb(188,155,93)";
+        newLable.style.textAlign = "right";
+        newLable.style.marginBottom = "20px";
+
 
         let newInput = document.createElement('input');
-        newInput.className = "inputClass";
-        newInput.id ="inputId"+inputId;
+        newInput.type ="number";
+        newInput.id = menuItemName[i];
+        newInput.style.width="40%";
+        newInput.style.marginBottom = "20px";
 
-        container.appendChild(newText);
+
+        let newSpan = document.createElement('span');
+        newSpan.textContent ="  dkk";
+        newSpan.style.color = "rgb(188,155,93)";
+        newSpan.style.marginBottom = "20px";
+
+
+
+        container.appendChild(newLable);
         container.appendChild(newInput);
-
-
-
-
+        container.appendChild(newSpan);
 
     }
 
-
-});
+menuItemName = menuItemName.map(i => '#' + i);
+let inputSelector = menuItemName.toString();
+alert(inputSelector);
