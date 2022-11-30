@@ -1,5 +1,5 @@
 
-#bluebox {
+#bluebox{
     border-radius: 25px; /* rounds the edges*/
     background: lightcyan;
     width: 50%;
@@ -37,26 +37,20 @@
     margin-right: 20px;
 }
 
-p {
-    font-size: large;
-    text-align: justify;
-}
 
-#topBar{
-    align-items: flex-start;
 
-}
+
 
 
 .backButton{
     background: darkgreen;
     color: white;
     padding: 0.375rem 0.75rem;
-    letter-spacing: var(--spacing);
+    letter-spacing: normal;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
+    transition:none;
     font-size: 0.875rem;
     border: 2px solid transparent;
     cursor: pointer;
@@ -77,11 +71,11 @@ p {
     background: darkgoldenrod;
     color: white;
     padding: 0.375rem 0.75rem;
-    letter-spacing: var(--spacing);
+    letter-spacing: normal;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
+    transition: none;
     font-size: 0.875rem;
     border: 2px solid transparent;
     cursor: pointer;
@@ -99,11 +93,11 @@ p {
     background: darkred;
     color: white;
     padding: 0.375rem 0.75rem;
-    letter-spacing: var(--spacing);
+    letter-spacing: normal;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
+    transition:none;
     font-size: 0.875rem;
     border: 2px solid transparent;
     cursor: pointer;
