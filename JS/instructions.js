@@ -1,6 +1,6 @@
 
 const menuItem = document.querySelector(".menuTitle");
-const menuInstructions = document.querySelector(".descriptionText");
+const menuInstructions = document.querySelector("#descriptionTitle");
 
 //Get id from URL sent by menuItem2.html
 const param = new URLSearchParams(window.location.search);
@@ -21,6 +21,6 @@ async function getIt(){
     console.log(data);
 
     menuItem.textContent = data.item;
-    menuInstructions.textContent = data.instructions;
+    menuInstructions.textContent = data.instruction;
 }
 getIt();

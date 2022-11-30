@@ -5,7 +5,7 @@ const urlId = param.get("id");
 const id = urlId;
 const url= "http://localhost:8080/menu/"+id;
 const nameTag = document.getElementById("item");
-const typeTag = document.getElementById("instructions");
+const typeTag = document.getElementById("instruction");
 let imageName = ""
 
 console.log(url)
@@ -17,7 +17,7 @@ async function getMe()
     const response = await fetch(url).then(response => response.json());
     console.log(response);
     nameTag.value = response.item
-    typeTag.value = response.instructions
+    typeTag.value = response.instruction
     imageName = response.imageName
 }
 
@@ -40,7 +40,7 @@ saveButton.addEventListener('click', (e) => {
         editMenuItem({
                 "id": id,
                 "item": nameTag.value,
-                "instructions": typeTag.value,
+                "instruction": typeTag.value,
                 "imageName": imageName
             }
 
