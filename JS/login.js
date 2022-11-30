@@ -9,7 +9,7 @@ let isLogedIn = false;                                   //To DB//
 let inputs;
 let usarnameInput;
 let passwordInput;
-let inputSelector = '#username, #password';
+let inputIdSelector = '#username, #password';
 let elementID = ["username","password"];
 wrongCredentials.style.visibility = "hidden";
 

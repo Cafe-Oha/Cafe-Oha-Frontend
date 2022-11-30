@@ -1,6 +1,6 @@
 //clean input fields
 function cleanInputFields(){
-    inputs = document.querySelectorAll(inputSelector);
+    inputs = document.querySelectorAll(inputIdSelector);
 
     inputs.forEach(input => {
         input.value = '';
