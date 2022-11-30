@@ -29,16 +29,14 @@
 
 }
 
-#menuTitle{
+#menuTitle {
     text-align: center;
-    margin-top: 20%;
-    margin-bottom: 30%;
-    margin-left: 20px;
-    margin-right: 20px;
 }
 
 
-
+#topBar{
+    align-items: flex-start;
+}
 
 
 
