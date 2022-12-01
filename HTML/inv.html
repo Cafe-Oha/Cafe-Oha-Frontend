@@ -27,13 +27,13 @@
 
 <form id="addInvForm">
     <label>Name:
-        <input name="name" type="text" placeholder="Enter ingredient name">
+        <input name="name" type="text" placeholder="Enter ingredient name" required>
     </label>
     <label>Quantity:
-        <input name="quantity" type="text" placeholder="Enter quantity">
+        <input name="quantity" type="text" placeholder="Enter quantity" required>
     </label>
     <label>Unit:
-        <input name="unit" type="text" placeholder="Enter type of quantity">
+        <input name="unit" type="text" placeholder="Enter type of quantity" required>
     </label>
     <input class="btns close-btn" type="button"  value="Close"/>
     <input class="btns save-btn" type="submit" value="Save">
@@ -51,7 +51,7 @@
     </label>
 
     <button id = "deleteBtn" class="hide" type="submit">Delete</button>
-    <button id = "editBtn" class="hide" type="button">Edit</button>
+    <button id = "editBtn" class="hide" type="submit">Edit</button>
 </form>
 
     <script src="../JS/inv.js"></script>

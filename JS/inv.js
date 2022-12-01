@@ -9,7 +9,6 @@ const editName = document.querySelector('#editName');
 const closeBtn = document.querySelector('.close-btn');
 const editInputs = document.querySelectorAll('.editInput');
 
-
 //display all ingredients in table
 fetch('http://localhost:8080/ingredients')
     .then(res => {
@@ -26,6 +25,7 @@ fetch('http://localhost:8080/ingredients')
     document.querySelectorAll('tr')
         .forEach(tr => tr.addEventListener("click", function() {
             toggleHide(editInvForm);
+            const ingredientName = tr.cells[0].innerHTML;
 
             //displays edited values in inputs
             editInputs.forEach((element,i) => {
@@ -33,6 +33,33 @@ fetch('http://localhost:8080/ingredients')
                 i++;
             })
 
+            //update ingredient
+            editBtn.addEventListener('click', () => {
+                const name = document.querySelector('#editName').value;
+                const quantity = document.querySelector('#editQuantity').value;
+                const unit = document.querySelector('#editUnit').value;
+
+                console.log(document.querySelector('#editName').value);
+
+                const updated = {
+                    name: name,
+                    quantity: quantity,
+                    unit: unit
+                }
+
+                fetch('http://localhost:8080/ingredients/edit/'+ingredientName,{
+                    method: 'PUT',
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updated)
+                })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error));
+                window.location.reload();
+
+            });
             toggleHide(editBtn);
             toggleHide(deleteBtn);
         }));
@@ -41,7 +68,7 @@ fetch('http://localhost:8080/ingredients')
 
 
 //adding ingredients
-formAdd.addEventListener('submit', event => {
+formAdd.addEventListener('submit', () => {
 
     const formData = new FormData(formAdd);
     const data = Object.fromEntries(formData);
@@ -63,13 +90,13 @@ deleteBtn.addEventListener('click',(name) =>{
     //gets name value from input field
     name=document.querySelector('#editName').value;
     console.log(document.querySelector('#editName').value);
+
     fetch('http://localhost:8080/ingredients/delete/'+name,{
         method: 'DELETE'
     })
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.log(error));
-
 });
 
 
