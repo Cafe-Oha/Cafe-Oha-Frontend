@@ -5,6 +5,8 @@
     <title>Insert sales</title>
     <!--Global CSS-->
     <link rel="stylesheet" href="../CSS/global.css">
+    <!--Sales CSS-->
+    <link rel="stylesheet" href="../CSS/sales.css">
 
 </head>
 <body>
@@ -17,7 +19,16 @@
     <button class="button" onclick="window.location.href='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/sales.html?_ijt=evnldkdj4u6rf0ofn1ri4djbtv&_ij_reload=RELOAD_ON_SAVE'">Back</button>
     <button class="button" onclick="cleanInputFields()">Clear</button>
     <button class="button" onclick="saveInput()">Save</button>
+<br>
+<br>
+<br>
 
+<!--Search Bar-->
+<div class="search">
+    <label for="searchBarID" id="searchBarLabelID">Search an Menu Item:</label>
+    <input type="text" id="searchBarID" placeholder="Search..">
+    <button class="button" id="searchBarButtonID">Search</button>
+</div>
 <br>
 <br>
 <br>
@@ -29,8 +40,8 @@
 
 <!--Utilities JS-->
     <script src="../JS/Service/Utilities.js"></script>
-<!--Sales JS-->
-    <script src="../JS/sales.js"></script>
+<!--insertSales JS-->
+<script src="../JS/insertSales.js"></script>
 
 </body>
 </html>
