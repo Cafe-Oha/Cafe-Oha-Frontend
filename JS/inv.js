@@ -1,77 +1,15 @@
-/*CHRIS WORKING SAVE*/
-
-/*
-
-// Add test products to <table>
-function testInventoryAdd() {
-    // First check if a <tbody> tag exists, add one if not
-    if ($("#inventoryTable tbody").length == 0) {
-        $("#inventoryTable").append("<tbody></tbody>");
-    }
-
-    // Append product to the table
-    $("#inventoryTable tbody").append("<tr>" +
-        "<td>Flour</td>" +
-        "<td>20</td>" +
-        "<td>KG</td>" +
-        "</tr>");
-
-    $("#inventoryTable tbody").append("<tr>" +
-        "<td>Oil</td>" +
-        "<td>3</td>" +
-        "<td>L</td>" +
-        "</tr>");
-
-    $("#inventoryTable tbody").append("<tr>" +
-        "<td>Avocado</td>" +
-        "<td>5</td>" +
-        "<td>KG</td>" +
-        "</tr>");
-}
-
-$(document).ready(function () {
-    testInventoryAdd();
-});
-*/
-
-////////////Ignore the stuff above this line
+"use strict"
 
 
-
-/*
-function addToInventory() {
-    let a = $("#iid").val();
-    let b = $("#iquantity").val();
-    let c = $("#iunit").val();
-
-    $("#inventoryTable tbody").append("<tr><td>" + a + "</td><td>" + b + "</td><td>" + c + "</td></tr>");
-    $("#iid").val('');
-    $("#iquantity").val('');
-    $("#iunit").val('');
-}
-
-*/
-
-
-function openForm() {
-    document.getElementById("addInvForm").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("addInvForm").style.display = "none";
-}
-
-
-
-
-
+const formAdd = document.querySelector('#addInvForm');
+const openFormBtn = document.querySelector('#openFormBtn');
+const editInvForm = document.querySelector('#editInvForm');
+const deleteBtn = document.querySelector('#deleteBtn');
+const editBtn = document.querySelector('#editBtn');
+const editName = document.querySelector('#editName');
 
 
 //display all ingredients in table
-
-
-
-
 fetch('http://localhost:8080/ingredients')
     .then(res => {
         return res.json();
@@ -80,20 +18,21 @@ fetch('http://localhost:8080/ingredients')
         const markup = `<td>${ingredient.name}</td>
                             <td>${ingredient.quantity}</td>
                             <td>${ingredient.unit}</td>`;
-        document.querySelector('table').insertAdjacentHTML('beforeend', markup);
+        document.querySelector('tbody').insertAdjacentHTML('beforeend', markup);
     });
+
+    //click on cell to display cancel or edit
+    document.querySelectorAll('td')
+        .forEach(td => td.addEventListener("click", function() {
+            console.log("clicked on cell");
+            toggleHide(editInvForm);
+            editName.value = td.valueOf();
+            toggleHide(editBtn);
+            toggleHide(deleteBtn);
+        }));
 })
     .catch(err => console.error(err));
 
-
-
-
-
-
-
-"use strict"
-
-const formAdd = document.querySelector('#addInvForm');
 
 //adding ingredients
 formAdd.addEventListener('submit', event => {
@@ -102,9 +41,9 @@ formAdd.addEventListener('submit', event => {
     const formData = new FormData(formAdd);
     const data = Object.fromEntries(formData);
 
-    fetch('http://localhost:8080/ingredients',{
+    fetch('http://localhost:8080/ingredients', {
         method: 'POST',
-        headers:{
+        headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
@@ -114,8 +53,31 @@ formAdd.addEventListener('submit', event => {
         .catch(error => console.log(error));
 });
 
+/*
+deleteBtn.addEventListener('click',() =>{
+
+    fetch('http://localhost:8080/ingredients',{
+        method: 'DELETE'
+    })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+
+});
+
+*/
 
 
+//show or hide form to add ingredients
+openFormBtn.addEventListener('click', () => {
+    toggleHide(formAdd);
+});
 
-
-
+//this function changes parameter's style to either block or none(visible or not)
+const toggleHide = function(btn) {
+    if (btn.style.display === 'block') {
+        btn.style.display = 'none';
+    } else {
+        btn.style.display = 'block';
+    }
+}
