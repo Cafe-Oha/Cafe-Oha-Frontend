@@ -13,21 +13,26 @@
 <!--Web page security JS-->
 <script src="../JS/Service/privateWeb.js"></script> <!--type ="module" -->
 
-    <p class="title">Title</p>
+    <p class="title">Menu Items Sales</p>
+<!--Sales Navigator div-->
+<div class="salesNavigator">
+    <img src="../resources/oha_logo1.jpg" alt="logo">
+    <br>
+    <br>
+    <br>
+    <!--Buttons list-->
+        <button class="button" onclick="window.location.href='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/sales.html?_ijt=evnldkdj4u6rf0ofn1ri4djbtv&_ij_reload=RELOAD_ON_SAVE'">Back</button>
+        <button class="button" onclick="cleanInputFields()">Clear</button>
+        <button class="button" onclick="saveInput()">Save</button>
+    <br>
+    <br>
+    <br>
 
-<!--Buttons list-->
-    <button class="button" onclick="window.location.href='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/sales.html?_ijt=evnldkdj4u6rf0ofn1ri4djbtv&_ij_reload=RELOAD_ON_SAVE'">Back</button>
-    <button class="button" onclick="cleanInputFields()">Clear</button>
-    <button class="button" onclick="saveInput()">Save</button>
-<br>
-<br>
-<br>
-
-<!--Search Bar-->
-<div class="search">
-    <label for="searchBarID" id="searchBarLabelID">Search an Menu Item:</label>
-    <input type="text" id="searchBarID" placeholder="Search..">
-    <button class="button" id="searchBarButtonID">Search</button>
+    <!--Search Bar-->
+    <div class="search">
+        <label for="searchBarID" id="searchBarLabelID">Search an Menu Item:</label>
+        <input type="text" id="searchBarID" onkeyup="searchLabels()" placeholder="Search..">
+    </div>
 </div>
 <br>
 <br>
@@ -35,8 +40,11 @@
 <br>
 <br>
 <!--location of the input js build html-->
+<ul id="myUL">
+
     <div id="inputContainer" style="width: 1050px"></div>
 
+</ul>
 
 <!--Utilities JS-->
     <script src="../JS/Service/Utilities.js"></script>
