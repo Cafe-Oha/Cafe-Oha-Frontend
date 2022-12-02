@@ -23,7 +23,21 @@
     <!--Buttons list-->
         <button class="button" onclick="window.location.href='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/sales.html?_ijt=evnldkdj4u6rf0ofn1ri4djbtv&_ij_reload=RELOAD_ON_SAVE'">Back</button>
         <button class="button" onclick="cleanInputFields()">Clear</button>
-        <button class="button" onclick="saveInput()">Save</button>
+        <button class="button" onclick="saveInput(); cleanInputFields()" >Save</button>
+    <br>
+    <br>
+    <br>
+
+    <!--Drop down-->
+    <label for="dropDateID">Type of sales:</label>
+    <select name="dropDate" id="dropDateID">
+
+        <option value="Daily">Daily</option>
+        <option value="Weekly">Weekly</option>
+        <option value="Monthly">Monthly</option>
+
+    </select>
+
     <br>
     <br>
     <br>
@@ -31,7 +45,7 @@
     <!--Search Bar-->
     <div class="search">
         <label for="searchBarID" id="searchBarLabelID">Search an Menu Item:</label>
-        <input type="text" id="searchBarID" onkeyup="searchLabels()" placeholder="Search..">
+        <input type="text" id="searchBarID" onkeyup="searchLabels()" placeholder="Search...">
     </div>
 </div>
 <br>

@@ -20,7 +20,6 @@ for (let i = 0; i < menuItemName.length; i++) {
     newLable.id =menuItemName[i]+namingLable;
     newLable.style.float = "left";
     newLable.style.width ="50%";
-    newLable.style.color = "rgb(188,155,93)";
     newLable.style.textAlign = "right";
     newLable.style.marginBottom = "20px";
 
@@ -96,6 +95,8 @@ function saveInput() {
 ////.......................................................////.....................................................////
         let itemSaleDate;                               //From DB//
         let menuItemTotalSaleOfThisDay = 10000;
+        let menuItemTotalSaleOfThisWeek = 10000;
+        let menuItemTotalSaleOfThisMonth = 10000;
 ////.......................................................////.....................................................////
 
         let date  = new Date();
