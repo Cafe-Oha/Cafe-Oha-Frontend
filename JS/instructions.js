@@ -1,6 +1,8 @@
+import { getAll  } from "./Service/API_calls.js";
+
 
 const menuItem = document.querySelector(".menuTitle");
-const menuInstructions = document.querySelector("#descriptionTitle");
+const menuInstructions = document.querySelector(".descriptionTitle");
 
 //Get id from URL sent by menuItem2.html
 const param = new URLSearchParams(window.location.search);
@@ -20,7 +22,7 @@ async function getIt(){
     const data = await response.json();
     console.log(data);
 
-    menuItem.textContent = data.item;
+    menuItem.textContent = data.name;
     menuInstructions.textContent = data.instruction;
 }
 getIt();

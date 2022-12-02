@@ -3,7 +3,7 @@
     border-radius: 25px; /* rounds the edges*/
     background: lightcyan;
     width: 50%;
-    padding: 25px;
+   /* padding: 25px;*/
     height: 700px;
     margin: auto;
     text-align: center;
@@ -13,17 +13,16 @@
     line-height: 1.5;
     display: block;
     vertical-align: middle;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-top: 50px;
 }
-.menuTitle{
-    margin-top: 30px;
-    margin-left: 25px;
-    float: left;
-}
+
 
 
 #descriptionTitle{
     margin-top: 350px;
-    margin-left:30px;
+    margin-left:20px;
     margin-bottom: 20px;
     align-items: flex-start;
     text-align: left
@@ -32,8 +31,8 @@
 
 #menuTitle {
     text-align: center;
+    margin-top:20px;
 }
-
 
 #topBar{
     align-items: flex-start;
