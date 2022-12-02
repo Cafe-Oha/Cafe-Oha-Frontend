@@ -1,0 +1,27 @@
+body{
+    font-family:futura-lt-w01-book,sans-serif;
+    margin: 0px 4px 0px 0px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: black;
+}
+
+.title{
+    font-size: 50px;
+    font-style: italic;
+}
+.subTitle{
+    color: rgb(188,155,93);
+    font-size: 25px;
+}
+
+.button{
+    font-size: 20px;
+    background-color: rgb(5,77,48);
+    border-color: rgb(5,77,48);
+    color: white;
+}
+.button:hover{
+    background-color: white;
+    color: rgb(5,77,48);
+}
