@@ -6,10 +6,10 @@ const saveButton = document.getElementById("saveButton");
 const param = new URLSearchParams(window.location.search);
 const urlId = param.get("id");
 const id = urlId;
-const url= "http://localhost:8080/menu/"+id;
-const nameTag = document.getElementById("name");
-const typeTag = document.getElementById("instruction");
-let imageName = ""
+const url= "http://localhost:8080/mainMenu/"+id;
+const nameTag = document.getElementById("main");
+const typeTag = document.getElementById("instructions");
+//let imageName = ""
 
 console.log(url)
 
@@ -19,18 +19,18 @@ async function getMe()
 {
     const response = await fetch(url).then(response => response.json());
     console.log(response);
-    nameTag.value = response.name
-    typeTag.value = response.instruction
-    imageName = response.imageName
+    nameTag.value = response.main
+    typeTag.value = response.instructions
+    //imageName = response.imageName
 }
 
-async function editMenuItem(menuItem) {
+async function editMainMenuItem(mainMenuItem) {
     fetch(url,{
         method: 'PUT',
         headers:{
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(menuItem)
+        body: JSON.stringify(mainMenuItem)
     })
         .then(response => response.json())
         .then(data => console.log(data))
@@ -40,15 +40,15 @@ async function editMenuItem(menuItem) {
 saveButton.addEventListener('click', (e) => {
     e.preventDefault()
     if(nameTag.value != "" && typeTag.value != "") {
-        editMenuItem({
+        editMainMenuItem({
                 "id": id,
-                "name": nameTag.value,
-                "instruction": typeTag.value,
-                "imageName": imageName
+                "main": nameTag.value,
+                "instructions": typeTag.value
+               // "imageName": imageName
             }
 
         )
-        window.location.href = "instructions.html?id=" + id;
+        window.location.href = "instructionsMain.html?id=" + id;
     } else {
         alert("You cannot save an empty menu")
     }
@@ -62,10 +62,6 @@ saveButton.addEventListener('click', (e) => {
 
 const cancelButtonEdit = document.getElementById("cancelButton");
 cancelButtonEdit.addEventListener("click", () => {
-    window.location.href = "instructions.html?id=" + id;
+    window.location.href = "instructionsMain.html?id=" + id;
 
 });
-
-
-
-

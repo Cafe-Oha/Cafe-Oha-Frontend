@@ -49,27 +49,6 @@ saveButton.addEventListener("click", () => {
             alert("Name is too long");
             return;
         }
-        //make sure name and type is correct english characters and grammar
-        if (!name.match(/^[a-zA-Z0-9 ]+$/)) {
-            alert("Name is not valid");
-            return;
-        }
-        if (!type.match(/^[a-zA-Z0-9 ]+$/)) {
-            alert("Type is not valid");
-            return;
-        }
-
-         //make sure is not save type with only numbers
-        if (type.match(/^[0-9]+$/)) {
-            alert("Type is not valid");
-            return;
-        }
-
-        if (name.match(/^[0-9]+$/)) {
-            alert("Number is not valid");
-            return;
-        }
-
 
        fetch(url, {
             method: "POST",
