@@ -1,5 +1,5 @@
 //add save button with event listener
-import {getAll} from './Service/API_calls';
+import { getAll } from "./Service/API_calls";
 
 
 const saveButton = document.getElementById("saveButton");
@@ -7,7 +7,7 @@ const param = new URLSearchParams(window.location.search);
 const urlId = param.get("id");
 const id = urlId;
 const url= "http://localhost:8080/menu/"+id;
-const nameTag = document.getElementById("name");
+const nameTag = document.getElementById("title");
 const typeTag = document.getElementById("instruction");
 let imageName = ""
 
@@ -65,6 +65,8 @@ cancelButtonEdit.addEventListener("click", () => {
     window.location.href = "instructions.html?id=" + id;
 
 });
+
+
 
 
 
