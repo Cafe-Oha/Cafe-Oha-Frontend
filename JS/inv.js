@@ -68,10 +68,19 @@ deleteBtn.addEventListener('click',() =>{
 */
 
 
+
 //show or hide form to add ingredients
 openFormBtn.addEventListener('click', () => {
     toggleHide(formAdd);
 });
+
+
+
+function closeForm() {
+    document.getElementById("addInvForm").style.display = "none";
+}
+
+
 
 //this function changes parameter's style to either block or none(visible or not)
 const toggleHide = function(btn) {

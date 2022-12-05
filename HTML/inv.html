@@ -6,6 +6,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <link rel="stylesheet" href="../CSS/inv.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></script>
+
 </head>
 <body>
 <h1> Inventory </h1>
@@ -22,30 +24,48 @@
 </table>
 <input id="openFormBtn" class="form-open-button btns" type="button" value="Add to Inventory">
 </br>
-
 <form class="forms" id="addInvForm">
-    <label>Name: <input name="name" type="text" placeholder="Enter ingredient name">
+
+   <div class="form-title">
+      <span>
+       Add<button class="icon-btn" onclick="closeForm()" ><i class="fa-regular fa-circle-xmark" ></i></button>
+
+       </span>
+   </div>
+
+    <label>Name: <input name="name" type="text" placeholder="Enter ingredient name" required>
     </label>
-    <label>Quantity: <input name="quantity" type="text" placeholder="Enter quantity">
+    <label>Quantity: <input name="quantity" type="text" placeholder="Enter quantity" required>
     </label>
-    <label>Unit: <input name="unit" type="text" placeholder="Enter type of quantity">
+    <label>Unit: <input name="unit" type="text" placeholder="Enter type of quantity" required>
     </label>
-    <input class="btns close-btn" type="button" value="Close" />
+    <input class="btns close-btn" type="button"  value="Close" onclick="closeForm()"/>
     <input class="btns save-btn" type="submit" value="Save">
 </form>
 
 
 <form class="forms" id="editInvForm">
-    <p></p>
-    <label>Name: <input id="editName" name="name" type="text">
+    <div class="form-title">
+     <span>
+       Edit [x] <button class="icon-btn" onclick="closeForm()" ><i class="fa-regular fa-circle-xmark" ></i></button>
+       </span>
+    </div>
+
+
+    <label>Name: <input id="editName" name="name" type="text"  placeholder="Edit name">
     </label>
-    <label>Quantity: <input id="editQuantity" name="quantity" type="text">
+    <label>Quantity: <input id="editQuantity" name="quantity" type="text"  placeholder="Edit quantity">
     </label>
-    <label>Unit: <input id="editUnit" name="unit" type="text">
+    <label>Unit: <input id="editUnit" name="unit" type="text"  placeholder="Edit type of quantity">
     </label>
-    <button id="deleteBtn" class="hide" type="button">Delete</button>
-    <button id="editBtn" class="hide" type="button">Edit</button>
+
+    <input id="deleteBtn " class="deleteBtn  btns" type="button" value="Delete"/>
+    <input id="editBtn " class=" editBtn btns" type="button" value="Save"/>
+
 </form>
+
 <script src="../JS/inv.js"></script>
+<script src="https://kit.fontawesome.com/6803008f19.js" crossorigin="anonymous"></script>
+
 </body>
 </html>

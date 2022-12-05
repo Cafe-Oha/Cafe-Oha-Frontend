@@ -1,7 +1,6 @@
 
 
 
-
 // Add test products to <table>
 function testInventoryAdd() {
     // First check if a <tbody> tag exists, add one if not

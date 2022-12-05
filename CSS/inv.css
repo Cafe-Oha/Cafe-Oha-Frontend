@@ -67,8 +67,48 @@ h1{
     width: 280px;
     height:30%;
     padding: 30px;
+    padding-top:25px;
     text-align: right;
 }
+#editInvForm{
+    display: none;
+    position: fixed;
+    top: 55%;
+    right: 16px;
+    border: 3px solid #054D30;
+    border-radius: 25px;
+    z-index: 9;
+    width: 280px;
+    height:30%;
+    padding: 30px;
+    text-align: right;
+}
+
+.form-title{
+    text-align: center;
+    margin-bottom: 4px;
+    font-size: 20px;
+    font-weight:Bold;
+}
+.icon-btn{
+    float: right;
+    font-weight: 800;
+    background-color: #ffffff;
+    border:0px;
+    font-size:16px;
+
+
+
+}
+
+.icon-btn:hover{
+    background-color: #cc3a29;
+    color: #ffffff;
+
+}
+
+
+
 label{
     text-align: left;
     font-weight: 600;
@@ -112,17 +152,23 @@ btns:hover{
      */
     right: 28px;
 }
-.save-btn{
+.save-btn, .editBtn{
     margin-left: 60px;
+    border: solid 2px #065c39;
+
 }
-.close-btn , .save-btn{
-    margin-top: 20px;
+.close-btn , .save-btn, .deleteBtn, .editBtn{
+    margin-top: 15px;
+    height: 35px;
 }
-.close-btn{
-    background-color: #d9311e;
+.close-btn, .deleteBtn {
+    border: solid 2px #d9311e;
+    color: #d9311e;
+    background-color: #ffffff;
 }
-.close-btn:hover{
+.close-btn:hover, .deleteBtn{
     background-color: #cc3a29;
+    color: #ffffff;
 }
 .hide {
     display:none;
