@@ -1,6 +1,3 @@
-import { getAll  } from "./Service/API_calls.js";
-
-
 const menuItem = document.querySelector(".menuTitle");
 const menuInstructions = document.querySelector(".descriptionTitle");
 
