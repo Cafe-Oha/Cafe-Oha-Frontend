@@ -6,10 +6,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <link rel="stylesheet" href="../CSS/inv.css">
+    <link rel="stylesheet" href="../HTML/navbar.html">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></script>
 
 </head>
 <body>
+
+<nav class="navbar"></nav>
+<section>
+    <div id="body">
 <h1> Inventory </h1>
 <!-- idk why it works and everything the same on inventory.html doesnt -->
 <table id="inventoryTable" class="sortable styled-table">
@@ -63,8 +68,10 @@
     <input id="editBtn " class=" editBtn btns" type="button" value="Save"/>
 
 </form>
-
+    </div>
+</section>
 <script src="../JS/inv.js"></script>
+<script src="../JS/dashboard.js"></script>
 <script src="https://kit.fontawesome.com/6803008f19.js" crossorigin="anonymous"></script>
 
 </body>

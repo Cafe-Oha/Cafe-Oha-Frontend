@@ -13,9 +13,9 @@ let imageName = ""
 
 console.log(url)
 
-getMe()
+getAll()
 
-async function getMe()
+async function getAll()
 {
     const response = await fetch(url).then(response => response.json());
     console.log(response);

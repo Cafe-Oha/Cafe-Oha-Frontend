@@ -25,7 +25,7 @@ async function getIt(){
 getIt();
 
 //display ingredients list
-const description = document.querySelector('#descriptionTitle')
+/*const description = document.querySelector('#descriptionTitle')
 fetch('http://localhost:8080/menu')
     .then(res => {
         return res.json();
@@ -41,4 +41,4 @@ fetch('http://localhost:8080/menu')
             description.insertAdjacentHTML('beforeend', markup);
         }
     }
-});
+});*/

@@ -55,7 +55,7 @@ button{
     font-family: "Comic Neue", sans-serif;
 }
 
-.description{
+.menuInstruction{
     margin-top: 30px;
     margin-left:10px;
     margin-right:10px;
@@ -81,20 +81,24 @@ button{
     display: inline-block;
     margin-right: .5em;
 }
-#instruction, #title, #instructions, #title {
+#instruction, #title, #ingredient {
     width: 100%;
-    min-height: 30px;
+    min-height: 20px;
     border-radius: 15px;
     border: none;
     padding: 1em;
 }
+#ingredient{
+    margin-bottom: 10px;
+    height: 8.0em;
+}
 #title, #main{
-    margin-bottom: 20px;
-    height: 3.2em;
+    margin-bottom: 10px;
+    height: 1.0em;
 }
 
-#instruction, #instructions {
-    height: 20rem;
+#instruction {
+    height: 10rem;
     margin-bottom: -3%;
 }
 
