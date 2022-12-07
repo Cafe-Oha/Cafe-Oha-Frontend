@@ -1,5 +1,5 @@
 //add save button with event listener
-import {getAll} from './JS/Service/API_calls/';
+import {getAll} from './editFetchMain';
 
 
 const saveButton = document.getElementById("saveButton");

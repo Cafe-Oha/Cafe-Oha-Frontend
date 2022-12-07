@@ -1,5 +1,5 @@
 
-import { getAll  } from "./Service/API_calls.js";
+import { getAll  } from "../JS/Service/API_calls.js";
 
 const menuItemList = document.querySelector('#menuItem_list')
 const addMenu = document.querySelector('#addMenuItemBtn')

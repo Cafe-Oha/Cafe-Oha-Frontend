@@ -1,4 +1,4 @@
-import { getAll  } from "./Service/API_calls.js";
+import { getAll  } from "../JS/Service/API_calls.js";
 
 
 const mainMenuItem = document.querySelector(".menuTitle");

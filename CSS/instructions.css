@@ -20,22 +20,34 @@
 
 
 
+
+
+#menuTitle {
+    text-align: left;
+    margin-top:50px;
+}
+#ingredient {
+    text-align: left;
+    margin-top:20px;
+}
 #descriptionTitle{
-    margin-top: 350px;
+    margin-top: 250px;
     margin-left:20px;
     margin-bottom: 20px;
     align-items: flex-start;
-    text-align: left
+    text-align: center;
 
 }
-
-#menuTitle {
-    text-align: center;
+#descriptionText {
+    text-align:left;
     margin-top:20px;
 }
 
 #topBar{
     align-items: flex-start;
+}
+p{
+    height:300px;
 }
 
 
