@@ -1,57 +1,88 @@
 ////.......................................................////.....................................................////
-let menuItemName= ["chips","sandwich","soup","toast","salad","applePie"];
-////.......................................................////.....................................................////
-let namingLable = "Label";
+function fetchMI() {
+    let menuItemName= [];
+    let thisMI;
 
 
-let container = document.getElementById('inputContainer');
-container.innerHTML = "";
+    fetch(miURL)
+        .then((res) => res.json())
+        .then(data => {
 
-//creat an input field in html for each member of the menu item list
-for (let i = 0; i < menuItemName.length; i++) {
-
-    let newLiTag =document.createElement('li')
-    let newATag =document.createElement('a');
-    newATag.href ="#";
-
-    let newLable= document.createElement('label');
-    newLable.htmlFor = menuItemName[i];
-    newLable.textContent = menuItemName[i]+":";
-    newLable.id =menuItemName[i]+namingLable;
-    newLable.style.float = "left";
-    newLable.style.width ="50%";
-    newLable.style.textAlign = "right";
-    newLable.style.marginBottom = "20px";
-
-
-    let newInput = document.createElement('input');
-    newInput.type ="number";
-    newInput.id = menuItemName[i];
-    newInput.placeholder = "Insert a sale value...";
-    newInput.style.width="40%";
-    newInput.style.marginBottom = "20px";
-
-
-    let newSpan = document.createElement('span');
-    newSpan.textContent ="  dkk";
-    newSpan.style.color = "rgb(188,155,93)";
-    newSpan.style.marginBottom = "20px";
-
-
-    container.appendChild(newLiTag);
-    newLiTag.appendChild(newATag);
-    newATag.appendChild(newLable);
-    newATag.appendChild(newInput);
-    newATag.appendChild(newSpan);
+            for (let i = 0; i < data.length; i++) {
+                thisMI = data[i].name
+                menuItemName.push(thisMI);
+            }
+        })
+        .then(() => {
+            console.log(menuItemName);
+            makeMIhtml(menuItemName);
+            saveInput(menuItemName);
+            cleanItUP(menuItemName);
+        });
 
 }
 
 
 
 
+//let menuItemName= ["chips","sandwich","soup","toast","salad","applePie"];
+////.......................................................////.....................................................////
+
+
+function makeMIhtml(menuItemName) {
+
+
+    let namingLable = "Label";
+
+
+    let container = document.getElementById('inputContainer');
+    container.innerHTML = "";
+
+//creat an input field in html for each member of the menu item list
+    for (let i = 0; i < menuItemName.length; i++) {
+
+        let newLiTag = document.createElement('li')
+        let newATag = document.createElement('a');
+        newATag.href = "#";
+
+        let newLable = document.createElement('label');
+        newLable.htmlFor = menuItemName[i];
+        newLable.textContent = menuItemName[i] + ":";
+        newLable.id = menuItemName[i] + namingLable;
+        newLable.style.float = "left";
+        newLable.style.width = "50%";
+        newLable.style.textAlign = "right";
+        newLable.style.marginBottom = "20px";
+
+
+        let newInput = document.createElement('input');
+        newInput.type = "number";
+        newInput.id = menuItemName[i];
+        newInput.placeholder = "Insert a sale value...";
+        newInput.style.width = "40%";
+        newInput.style.marginBottom = "20px";
+
+
+        let newSpan = document.createElement('span');
+        newSpan.textContent = "  dkk";
+        newSpan.style.color = "rgb(188,155,93)";
+        newSpan.style.marginBottom = "20px";
+
+
+        container.appendChild(newLiTag);
+        newLiTag.appendChild(newATag);
+        newATag.appendChild(newLable);
+        newATag.appendChild(newInput);
+        newATag.appendChild(newSpan);
+
+    }
+}
+
+
+
 
 //grab and save user input in the DB
-function saveInput() {
+function saveInput(menuItemName) {
     let arrayInput = [];
 
     //cut the # in each array member to represent an id
@@ -141,11 +172,12 @@ function searchLabels(){
 }
 
 
-
+function cleanItUP(menuItemName) {
 //add a # before each array to represent an id style to use the function utilities.cleanInputFields()
-menuItemName = menuItemName.map(i => '#' + i);
-console.log(menuItemName.toString());
-let inputIdSelector = menuItemName.toString();
+    menuItemName = menuItemName.map(i => '#' + i);
+    console.log(menuItemName.toString());
+    let inputIdSelector = menuItemName.toString();
 
 //utilities.cleanInputFields()
-
+}
+fetchMI();
