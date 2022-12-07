@@ -11,9 +11,9 @@ function verifyLogin(dbIsLoggedInS, dbIsLoggedInA){
         window.location.replace(mainPageURL);
     }
     if(dbIsLoggedInS){
-        whoLoggedIn ="stuff";
+        whoLoggedIn ="The staff is logged in.";
     }else if(dbIsLoggedInA){
-        whoLoggedIn = "admin";
+        whoLoggedIn = "The admin is logged in.";
     }else{
         whoLoggedIn = "!?";
     }
@@ -28,16 +28,14 @@ function fetchIsLoggedIn() {
     let dbIsLoggedInA;
 
 
-    fetch(url)
+    fetch('http://localhost:8080/users')
         .then((res) => res.json())
         .then(data => {
-            dbIsLoggedInS = data[1].isLoggedIn
-            dbIsLoggedInA = data[2].isLoggedIn
+            dbIsLoggedInS = data[1].loggedIn
+            dbIsLoggedInA = data[0].loggedIn
 
-            console.log(data[1])
         })
         .then(() => {
-            console.log(dbIsLoggedInS,dbIsLoggedInA);
             verifyLogin(dbIsLoggedInS, dbIsLoggedInA);
         });
 

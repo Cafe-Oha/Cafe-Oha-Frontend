@@ -88,7 +88,6 @@ function fetchCredentials() {
             dbPasswordA = data[0].password
         })
         .then(() => {
-            console.log(dbRoleS,dbPasswordS,dbRoleA,dbPasswordA);
             loginValidator(dbRoleS,dbPasswordS,dbRoleA,dbPasswordA);
         });
 

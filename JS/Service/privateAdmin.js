@@ -8,7 +8,7 @@ function verifyIsAdmin(dbIsLoggedInA){
     document.getElementsByTagName("body")[0].style.visibility = "hidden";
     if(dbIsLoggedInA) {
         document.getElementsByTagName("body")[0].style.visibility = "visible";
-        console.log("the admin is logged in");
+        console.log("The admin is logged in.");
     }else{
         window.location.replace(mainPageURL);
     }
@@ -24,11 +24,10 @@ function fetchIsAdmin() {
         .then((res) => res.json())
         .then(data => {
 
-            dbIsLoggedInA = data[2].isLoggedIn
+            dbIsLoggedInA = data[0].loggedIn
 
         })
         .then(() => {
-            console.log(dbIsLoggedInA);
             verifyIsAdmin(dbIsLoggedInA);
         });
 
