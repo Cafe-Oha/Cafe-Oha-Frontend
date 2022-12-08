@@ -8,6 +8,13 @@ const id = urlId;
 const apiUrl = "http://localhost:8080/menu/" + id
 const menuItemPage= true
 
+const descriptionEditButton = document.getElementById("editMenuItemBtn")
+
+descriptionEditButton.addEventListener('click', () =>{
+    window.location.href = `editMenuItem.html?id=${id}`
+    // $('#cont').load("editMenuItem.html")
+})
+
 
 function out(any){
     console.log(any);

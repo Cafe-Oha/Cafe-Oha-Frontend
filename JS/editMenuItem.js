@@ -1,5 +1,6 @@
 const descriptionEditButton = document.getElementById("editMenuItemBtn")
 
 descriptionEditButton.addEventListener('click', () =>{
-    $('#cont').load("editMenuItem.html")
+    window.location.href = "editMenuItem.html?id"
+    // $('#cont').load("editMenuItem.html")
 })

@@ -1,28 +1,29 @@
-//add save button with event listener
-import { getAll } from "./Service/API_calls";
 
 
 const saveButton = document.getElementById("saveButton");
-const param = new URLSearchParams(window.location.search);
-const urlId = param.get("id");
+const parameter = new URLSearchParams(window.location.search);
+const urlId = parameter.get("id");
 const id = urlId;
 const url= "http://localhost:8080/menu/"+id;
 const nameTag = document.getElementById("title");
 const typeTag = document.getElementById("instruction");
-let imageName = ""
+const ingredient = document.getElementById("ingredient")
+//let imageName = ""
+
 
 console.log(url)
 
-getAll()
+getMe()
 
-async function getAll()
+async function getMe()
 {
     const response = await fetch(url).then(response => response.json());
     console.log(response);
-    nameTag.value = response.name
-    typeTag.value = response.instruction
-    imageName = response.imageName
+    nameTag.innerText = response.name
+    typeTag.innerText = response.instruction
+    ingredient.innerText = response.ingredient
 }
+
 
 async function editMenuItem(menuItem) {
     fetch(url,{
@@ -36,13 +37,14 @@ async function editMenuItem(menuItem) {
         .then(data => console.log(data))
         .catch(err => console.log(err))
 
+
 }
 saveButton.addEventListener('click', (e) => {
     e.preventDefault()
     if(nameTag.value != "" && typeTag.value != "") {
         editMenuItem({
                 "id": id,
-                "name": nameTag.value,
+                "title": nameTag.value,
                 "instruction": typeTag.value,
                 "imageName": imageName
             }
@@ -65,9 +67,3 @@ cancelButtonEdit.addEventListener("click", () => {
     window.location.href = "instructions.html?id=" + id;
 
 });
-
-
-
-
-
-
