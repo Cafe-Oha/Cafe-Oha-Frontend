@@ -2,8 +2,10 @@ let wrongCredentials = document.getElementById("wrongCredentials");
 let popup = document.getElementById("popup");
 let userRole;
 ////.......................................................////.....................................................////
+                                                        //To DB//
 let isLoggedInS = false;
-let isLoggedInA = false;                                   //To DB//
+let isLoggedInA = false;
+updateLoginStatus()
 ////.......................................................////.....................................................////
 let inputs;
 let usarnameInput;
@@ -29,7 +31,7 @@ function getUserInputs() {
 
 
 //login validator
- function loginValidator(dbRoleS,dbPasswordS,dbRoleA,dbPasswordA) {
+function loginValidator(dbRoleS, dbPasswordS, dbRoleA, dbPasswordA) {
      getUserInputs();
      inputs = getUserInputs();
 
@@ -37,22 +39,22 @@ function getUserInputs() {
      passwordInput = inputs[1];
 
 
-    //direct to the main page
-    if (usarnameInput == dbRoleS  && passwordInput == dbPasswordS){
-        userRole  = usarnameInput;
-        isLoggedInS = true;
-        isLoggedInA = false;
-        cleanInputFields();
-        window.location='http://localhost:63342/Cafe-Oha-Frontend/HTML/sales.html?_ijt=6tmneul4l4psukj19iirmu1h4p&_ij_reload=RELOAD_ON_SAVE';
+     //direct to the main page
+     if (usarnameInput == dbRoleS && passwordInput == dbPasswordS) {
+         userRole = usarnameInput;
+         isLoggedInS = true;
+         isLoggedInA = false;
+         cleanInputFields();
+         window.location = 'http://localhost:63342/Cafe-Oha-Frontend/HTML/sales.html?_ijt=6tmneul4l4psukj19iirmu1h4p&_ij_reload=RELOAD_ON_SAVE';
 
-    } else if (usarnameInput == dbRoleA && passwordInput == dbPasswordA){
-        userRole  = usarnameInput;
-        isLoggedInS = false;
-        isLoggedInA = true;
-        cleanInputFields();
-        window.location='http://localhost:63342/Cafe-Oha-Frontend/HTML/sales.html?_ijt=6tmneul4l4psukj19iirmu1h4p&_ij_reload=RELOAD_ON_SAVE';
+     } else if (usarnameInput == dbRoleA && passwordInput == dbPasswordA) {
+         userRole = usarnameInput;
+         isLoggedInS = false;
+         isLoggedInA = true;
+         cleanInputFields();
+         window.location = 'http://localhost:63342/Cafe-Oha-Frontend/HTML/sales.html?_ijt=6tmneul4l4psukj19iirmu1h4p&_ij_reload=RELOAD_ON_SAVE';
 
-    } else{
+     } else {
          userRole = "unknown";
          isLoggedInA = false;
          isLoggedInS = false;
@@ -67,10 +69,74 @@ function getUserInputs() {
      }
 
      ////.......................................................////.....................................................////
-     return [isLoggedInS,isLoggedInA];                       //To DB//
-    ////.......................................................////.....................................................////
+                                                             //To DB//
+    updateLoginStatus()
+     ////.......................................................////.....................................................////
+
+ }
+
+//update login status
+
+function updateLoginStatus() {
+
+    let changingDataA = isLoggedInA;
+    let changingDataS = isLoggedInS;
+
+    let thisMethod = "PUT";
+    fetch('http://localhost:8080/users/1', {
+
+        method: thisMethod,
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(
+            {
+                "id": 1,
+                "username": "Anjellie",
+                "password": "pass",
+                "role": "admin",
+                "loggedIn": changingDataA
+            }
+        )
+    })
+        .then(res => {
+            if (!res.ok) {
+                console.log(thisMethod + " request unsuccessful")
+            }
+            return res
+        })
+        .then(res => res.json())
+        .catch(error => console.log(error))
+
+
+    fetch('http://localhost:8080/users/2', {
+
+        method: thisMethod,
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(
+            {
+                "id": 1,
+                "username": "Sajeta",
+                "password": "password",
+                "role": "stuff",
+                "loggedIn": changingDataS
+            }
+        )
+    })
+        .then(res => {
+            if (!res.ok) {
+                console.log(thisMethod + " request unsuccessful")
+            }
+            return res
+        })
+        .then(res => res.json())
+        .catch(error => console.log(error))
+
 
 }
+
 //fetch credentials from database
 function fetchCredentials() {
 
@@ -89,6 +155,7 @@ function fetchCredentials() {
         })
         .then(() => {
             loginValidator(dbRoleS,dbPasswordS,dbRoleA,dbPasswordA);
-        });
+        })
+        .catch(error=> console.log(error));
 
 }
