@@ -1,15 +1,17 @@
 ////.......................................................////.....................................................////
+
+//get menu items from data base
 function fetchMI() {
     let menuItemName= [];
     let thisMI;
 
 
-    fetch(miURL)
+    fetch('http://localhost:8080/mainMenu')
         .then((res) => res.json())
         .then(data => {
 
             for (let i = 0; i < data.length; i++) {
-                thisMI = data[i].name
+                thisMI = data[i].main
                 menuItemName.push(thisMI);
             }
         })
@@ -22,10 +24,6 @@ function fetchMI() {
 
 }
 
-
-
-
-//let menuItemName= ["chips","sandwich","soup","toast","salad","applePie"];
 ////.......................................................////.....................................................////
 
 
