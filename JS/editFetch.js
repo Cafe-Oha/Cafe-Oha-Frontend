@@ -41,16 +41,17 @@ async function editMenuItem(menuItem) {
 }
 saveButton.addEventListener('click', (e) => {
     e.preventDefault()
-    if(nameTag.value != "" && typeTag.value != "") {
+    if(nameTag.innerText != "" || typeTag.innerText != "" || ingredient.innerText !="") {
         editMenuItem({
                 "id": id,
-                "title": nameTag.value,
-                "instruction": typeTag.value,
-                "imageName": imageName
+                "title": nameTag.innerText,
+                "ingredient": ingredient.innerText,
+                "instruction": typeTag.innerText
+
             }
 
         )
-        window.location.href = "instructions.html?id=" + id;
+        window.location.href = "menuItem2.html?id=" + id;
     } else {
         alert("You cannot save an empty menu")
     }
