@@ -21,7 +21,11 @@ async function getMe()
     console.log(response);
     nameTag.innerText = response.name
     typeTag.innerText = response.instruction
-    ingredient.innerText = response.ingredient
+    response.menuIngredients.forEach(e=>{
+        const markup = `<li>${e.name+e.unit}</li>`
+        ingredient.insertAdjacentHTML("beforeend", markup);
+    })
+
 }
 
 
