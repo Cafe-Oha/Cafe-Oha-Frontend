@@ -15,6 +15,12 @@ descriptionEditButton.addEventListener('click', () =>{
     // $('#cont').load("editMenuItem.html")
 })
 
+const btn = document.getElementById("deleteMenuItem")
+
+btn.addEventListener('click', () =>{
+    window.location.href = `deletePrepMenu.html?id=${id})`
+})
+
 
 function out(any){
     console.log(any);

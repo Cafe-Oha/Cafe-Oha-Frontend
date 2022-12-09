@@ -129,5 +129,40 @@ button{
     width: 20rem;
     margin: auto;
 }
+/*delete Css*/
+.btnYes {
+    background: darkgreen;
+
+
+}
+.btnNo {
+    background: darkred;
+}
+
+.pStyle {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#pMenu {
+    margin: 3rem 0;
+    font-size: 1.5em;
+    color: var(--yellow);
+}
+
+.divStyle
+{
+    text-align: center;
+    width: 40rem;
+    height: 32rem;
+    background-color: white;
+}
+
+.button_cont {
+    display: flex;
+    justify-content: center;
+}
 
 
