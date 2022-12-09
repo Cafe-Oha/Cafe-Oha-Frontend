@@ -45,14 +45,14 @@ function loginValidator(dbRoleS, dbPasswordS, dbRoleA, dbPasswordA) {
          isLoggedInS = true;
          isLoggedInA = false;
          cleanInputFields();
-        // window.location = 'http://localhost:63342/Cafe-Oha-Frontend/HTML/sales.html?_ijt=6tmneul4l4psukj19iirmu1h4p&_ij_reload=RELOAD_ON_SAVE';
+         window.location = 'http://localhost:63342/Cafe-Oha-Frontend/HTML/sales.html?_ijt=6tmneul4l4psukj19iirmu1h4p&_ij_reload=RELOAD_ON_SAVE';
 
      } else if (usarnameInput == dbRoleA && passwordInput == dbPasswordA) {
          userRole = usarnameInput;
          isLoggedInS = false;
          isLoggedInA = true;
          cleanInputFields();
-         //window.location = 'http://localhost:63342/Cafe-Oha-Frontend/HTML/sales.html?_ijt=6tmneul4l4psukj19iirmu1h4p&_ij_reload=RELOAD_ON_SAVE';
+         window.location = 'http://localhost:63342/Cafe-Oha-Frontend/HTML/sales.html?_ijt=6tmneul4l4psukj19iirmu1h4p&_ij_reload=RELOAD_ON_SAVE';
 
      } else {
          userRole = "unknown";
@@ -106,7 +106,7 @@ function updateLoginStatus() {
             return res
         })
         .then(res => res.json())
-       // .catch(error => console.log(error))
+        .catch(error => console.log(error))
 
 
     fetch('http://localhost:8080/users/2', {
@@ -120,7 +120,7 @@ function updateLoginStatus() {
                 "id": 1,
                 "username": "Sajeta",
                 "password": "password",
-                "role": "stuff",
+                "role": "staff",
                 "loggedIn": changingDataS
             }
         )
@@ -152,6 +152,8 @@ function fetchCredentials() {
             dbPasswordS = data[1].password
             dbRoleA = data[0].role
             dbPasswordA = data[0].password
+            console.log(dbRoleS, dbPasswordS, dbRoleA, dbPasswordA);
+
         })
         .then(() => {
             loginValidator(dbRoleS,dbPasswordS,dbRoleA,dbPasswordA);
