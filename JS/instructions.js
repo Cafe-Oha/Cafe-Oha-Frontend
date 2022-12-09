@@ -17,9 +17,9 @@ descriptionEditButton.addEventListener('click', () =>{
 
 const btn = document.getElementById("deleteMenuItem")
 
-btn.addEventListener('click', () =>{
-    window.location.href = `deletePrepMenu.html?id=${id})`
-})
+// btn.addEventListener('click', () =>{
+//     window.location.href = `deletePrepMenu.html?id=${id})`
+// })
 
 
 function out(any){
@@ -38,20 +38,30 @@ async function getIt(){
 getIt();
 
 //display ingredients list
-/*const description = document.querySelector('#descriptionTitle')
-fetch('http://localhost:8080/menu')
-    .then(res => {
-        return res.json();
-    }).then(data => {
+window.onload = function() {
+    console.log(menuItem.innerHTML);
 
-    console.log('displaying list of ingredients')
+    const ingredient = document.querySelector('.ingredient-list')
+    fetch('http://localhost:8080/menu')
+        .then(res => {
+            return res.json();
+        }).then(data => {
 
-    for (let i = 0; i < data.length; i++) {
-        const ing = data[i].menuIngredients;
-        for (let j=0; ing.length; j++){
-            console.log(ing[j].name);
-            const markup = `<ol> <li>${ing[j].name}</li> </ol>`;
-            description.insertAdjacentHTML('beforeend', markup);
-        }
-    }
-});*/
+        console.log('displaying list of ingredients')
+        console.log(data[0]);
+        data.forEach(e=>{
+            if(e.name === menuItem.innerHTML){
+                console.log('match');
+                const number = e.id;
+                console.log(e.menuIngredients.length);
+                for(let i = 0; i < e.menuIngredients.length; i++){
+                    console.log(e.menuIngredients[i].name);
+                    const markup =`<li>${e.menuIngredients[i].name}</li>`
+                    ingredient.insertAdjacentHTML('beforeend',markup);
+                }
+            }
+        })
+
+
+    }).catch(error => console.log(error));
+}

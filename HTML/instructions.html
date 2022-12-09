@@ -11,7 +11,6 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="../CSS/global.css"  media="screen">
     <link rel="stylesheet" type="text/css" href="../CSS/instructions.css" media="screen">
-    <script src="../JS/instructions.js" type="module" defer></script>
     <!-- script src="../JS/editMenuItem.js" defer></script -->
 
     <title>Instructions</title>
@@ -40,6 +39,9 @@
 
     <div id="ingredient">
         <h2 class="ingredient">Ingredients</h2>
+        <ol class="ingredient-list">
+
+        </ol>
     </div>
 
 
@@ -50,5 +52,7 @@
 
 </div>
 
+<!--moved it here so it works after DOM is loaded -->
+<script src="../JS/instructions.js" type="module" defer></script>
 </body>
 </html>
