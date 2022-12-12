@@ -55,7 +55,7 @@ button{
     font-family: "Comic Neue", sans-serif;
 }
 
-.description{
+.menuInstruction{
     margin-top: 30px;
     margin-left:10px;
     margin-right:10px;
@@ -81,20 +81,24 @@ button{
     display: inline-block;
     margin-right: .5em;
 }
-#instruction, #title, #instructions, #title {
+#instruction, #title, #ingredient {
     width: 100%;
-    min-height: 30px;
+    min-height: 20px;
     border-radius: 15px;
     border: none;
     padding: 1em;
 }
+#ingredient{
+    margin-bottom: 10px;
+    height: 8.0em;
+}
 #title, #main{
-    margin-bottom: 20px;
-    height: 3.2em;
+    margin-bottom: 10px;
+    height: 1.0em;
 }
 
-#instruction, #instructions {
-    height: 20rem;
+#instruction {
+    height: 10rem;
     margin-bottom: -3%;
 }
 
@@ -103,15 +107,6 @@ button{
     flex-direction: row;
 }
 
-#display_image{
-    width: 74px;
-    height: 42px;
-    border: 1px solid black;
-    background-position: center;
-    background-size: cover;
-    border-radius: var(--radius);
-    background-color: white;
-}
 
 #buttonSave, #buttonCancel {
     text-align: center;
@@ -124,7 +119,7 @@ button{
 }
 
 #cancelButton {
-    background-color: goldenrod;
+    background-color: darkred;
 }
 
 .twobutton{
@@ -134,17 +129,40 @@ button{
     width: 20rem;
     margin: auto;
 }
+/*delete Css*/
+.btnYes {
+    background: darkgreen;
 
-#addactivity{
-    margin-left: 5px;
-    margin-bottom: -50px;
-    font-size: 25px;
+
+}
+.btnNo {
+    background: darkred;
 }
 
-#descriptionh3{
-    margin-top: 2%;
-}
-
-#instructorDiv{
+.pStyle {
     margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+#pMenu {
+    margin: 3rem 0;
+    font-size: 1.5em;
+    color: var(--yellow);
+}
+
+.divStyle
+{
+    text-align: center;
+    width: 40rem;
+    height: 32rem;
+    background-color: white;
+}
+
+.button_cont {
+    display: flex;
+    justify-content: center;
+}
+
+

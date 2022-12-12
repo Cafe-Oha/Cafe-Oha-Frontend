@@ -1,15 +1,15 @@
-//add save button with event listener
-import { getAll } from "./Service/API_calls";
 
 
 const saveButton = document.getElementById("saveButton");
-const param = new URLSearchParams(window.location.search);
-const urlId = param.get("id");
+const parameter = new URLSearchParams(window.location.search);
+const urlId = parameter.get("id");
 const id = urlId;
 const url= "http://localhost:8080/menu/"+id;
 const nameTag = document.getElementById("title");
 const typeTag = document.getElementById("instruction");
-let imageName = ""
+const ingredient = document.getElementById("ingredient")
+//let imageName = ""
+
 
 console.log(url)
 
@@ -19,10 +19,15 @@ async function getMe()
 {
     const response = await fetch(url).then(response => response.json());
     console.log(response);
-    nameTag.value = response.name
-    typeTag.value = response.instruction
-    imageName = response.imageName
+    nameTag.innerText = response.name
+    typeTag.innerText = response.instruction
+    response.menuIngredients.forEach(e=>{
+        const markup = `<li>${e.name+e.unit}</li>`
+        ingredient.insertAdjacentHTML("beforeend", markup);
+    })
+
 }
+
 
 async function editMenuItem(menuItem) {
     fetch(url,{
@@ -36,19 +41,21 @@ async function editMenuItem(menuItem) {
         .then(data => console.log(data))
         .catch(err => console.log(err))
 
+
 }
 saveButton.addEventListener('click', (e) => {
     e.preventDefault()
-    if(nameTag.value != "" && typeTag.value != "") {
+    if(nameTag.innerText != "" || typeTag.innerText != "" || ingredient.innerText !="") {
         editMenuItem({
                 "id": id,
-                "name": nameTag.value,
-                "instruction": typeTag.value,
-                "imageName": imageName
+                "title": nameTag.innerText,
+                "ingredient": ingredient.innerText,
+                "instruction": typeTag.innerText
+
             }
 
         )
-        window.location.href = "instructions.html?id=" + id;
+        window.location.href = "menuItem2.html?id=" + id;
     } else {
         alert("You cannot save an empty menu")
     }
@@ -65,9 +72,3 @@ cancelButtonEdit.addEventListener("click", () => {
     window.location.href = "instructions.html?id=" + id;
 
 });
-
-
-
-
-
-

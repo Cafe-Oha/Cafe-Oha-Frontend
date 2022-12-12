@@ -1,24 +1,58 @@
-<div class="background">
-    <div class="bluebox popupBox">
-        <div class="menuTitle">
-            <h3>Recipe</h3>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu Item</title>
+    <script
+            src="https://code.jquery.com/jquery-3.6.1.js"
+            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+            crossorigin="anonymous">
 
-            <textarea name="title" id="title"></textarea>
+    </script>
+    <link rel="stylesheet" href="../CSS/global.css">
+    <base href="../HTML/dashboardFinal.html">
+    <base href="../HTML/navbar.html">
+
+
+</head>
+
+<body>
+<nav class="navbar"></nav>
+<section>
+
+    <div class="background">
+        <div class="bluebox popupBox">
+            <div class="menuTitle">
+                <h3>Recipe</h3>
+
+                <textarea name="title" id="title"></textarea>
+
+            </div>
+            <div class="menuIngredient">
+                <h3>Ingredients</h3>
+
+                <ol id="ingredient" name="ingredient"></ol>
+
+            </div>
+            <div class="menuInstruction">
+                <h3>Instructions</h3>
+
+                <textarea id="instruction" name="instruction"></textarea>
+
+            </div>
+
+            <div class="twobutton">
+                <button id="saveButton" class="btn small-btn"><img src="../resources/save-icon.png" alt="">Save</button>
+                <button id="cancelButton" class="btn small-btn"><img src="../resources/cancel-icon.png" alt="" >Cancel</button>
+            </div>
 
         </div>
-        <div class="description">
-            <h3>Instructions</h3>
-
-            <textarea id="instruction" name="instruction"></textarea>
-
-        </div>
-
-        <div class="twobutton">
-            <button id="saveButton" class="btn small-btn"><img src="../resources/save-icon.png" alt="">Save</button>
-            <button id="cancelButton" class="btn small-btn"><img src="../resources/cancel-icon.png" alt="" >Cancel</button>
-        </div>
-
     </div>
-</div>
-<script rel="stylesheet" src="../JS/editFetch.js" defer></script>
-<script rel="stylesheet" src="../JS/editMenuItem.js" defer></script>
+
+</section>
+<script src="../JS/editFetch.js" type="module" defer></script>
+</body>
+</html>
