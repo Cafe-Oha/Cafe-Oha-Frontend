@@ -152,7 +152,7 @@ function fetchCredentials() {
             dbPasswordS = data[1].password
             dbRoleA = data[0].role
             dbPasswordA = data[0].password
-            console.log(dbRoleS, dbPasswordS, dbRoleA, dbPasswordA);
+
 
         })
         .then(() => {

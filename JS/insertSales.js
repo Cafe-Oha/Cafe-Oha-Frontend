@@ -1,3 +1,14 @@
+//get today's date
+let date = new Date()
+let day = date.getDate();
+let month = date.getMonth()+1;
+let year = date.getFullYear();
+
+let todayDate = `${day}.${month}.${year}.`;
+//console.log(todayDate);
+
+
+
 ////.......................................................////.....................................................////
 
 //get menu items from data base
@@ -115,35 +126,49 @@ function saveInput(menuItemName) {
             }
     }
 ////.......................................................////.....................................................////
-    //let menuItemTotalSale.date = 100000;          //From DB//
-////.......................................................////.....................................................////
-////.......................................................////.....................................................////
-                                                        //To DB//
-    for (let i = 0; i < arrayInput.length; i++) {
-
-////.......................................................////.....................................................////
-        let itemSaleDate;                               //From DB//
-        let menuItemTotalSaleOfThisDay = 10000;
-        let menuItemTotalSaleOfThisWeek = 10000;
-        let menuItemTotalSaleOfThisMonth = 10000;
-////.......................................................////.....................................................////
-
-        let date  = new Date();
-        if(date == itemSaleDate){
-            let newMenuItemTotalSaleOfThisDay = arrayInput[i] + menuItemTotalSaleOfThisDay;
-        }
-
-        let itemSaleInput = arrayInput[i];
-
-    }
     console.log(arrayInput.toString());
-    // connect to the total sale of an menu item and the date
-    // sum the value as total sale of the item per date
-    // identify the date and connect it to the tables
-
-    // UpdatedMenuItemTotalSale AND date
-////.......................................................////.....................................................////
+    return arrayInput;
 }
+
+
+function fetchTotalSell() {
+
+    let dbDate;
+    let dbTotalSell;
+
+
+    fetch('http://localhost:8080/menu/sell')
+        .then((res) => res.json())
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                dbDate = data[i].date
+                dbTotalSell = data[i].totalSell
+
+                if(todayDate  = dbDate){
+                    sumToTotalSell(dbTotalSell);
+                }
+            }
+        })
+        .then(() => {
+
+        })
+        .catch(error=> console.log(error));
+
+}
+
+
+function sumToTotalSell(totalSell){
+
+}
+
+
+
+
+
+
+
+
+
 
 
 //Search menu items
