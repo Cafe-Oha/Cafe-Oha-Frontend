@@ -6,7 +6,7 @@ function fetchMI() {
     let thisMI;
 
 
-    fetch('http://localhost:8080/mainMenu')
+    fetch('http://localhost:8080/menu.name')
         .then((res) => res.json())
         .then(data => {
 
