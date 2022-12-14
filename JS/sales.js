@@ -134,7 +134,7 @@ function graphDisplayer(theLenght,arrayDbDate,arrayDbTotalSell,arrayDbMenuItemID
                 }
         }
     }
-
+//display graph here
 
 
 
