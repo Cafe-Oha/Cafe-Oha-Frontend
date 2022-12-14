@@ -12,25 +12,23 @@ console.log('today date is: ' + todayDate);
 ////.......................................................////.....................................................////
 
 //get menu items from data base
-function fetchMI() {
+function fetchMI(functionName) {
     let menuItemName= [];
     let thisMI;
 
 
-    fetch('http://localhost:8080/menu.name')
+    fetch('http://localhost:8080/menu')
         .then((res) => res.json())
         .then(data => {
 
             for (let i = 0; i < data.length; i++) {
-                thisMI = data[i].main
+                thisMI = data[i].name
                 menuItemName.push(thisMI);
             }
         })
         .then(() => {
             console.log(menuItemName);
-            makeMIhtml(menuItemName);
-            saveInput(menuItemName);
-            cleanItUP(menuItemName);
+            functionName(menuItemName);
         });
 
 }
@@ -41,7 +39,7 @@ function fetchMI() {
 function makeMIhtml(menuItemName) {
 
 
-    let namingLable = "Label";
+
 
 
     let container = document.getElementById('inputContainer');
@@ -57,7 +55,7 @@ function makeMIhtml(menuItemName) {
         let newLable = document.createElement('label');
         newLable.htmlFor = menuItemName[i];
         newLable.textContent = menuItemName[i] + ":";
-        newLable.id = menuItemName[i] + namingLable;
+        newLable.id = menuItemName[i] + "Lable";
         newLable.style.float = "left";
         newLable.style.width = "50%";
         newLable.style.textAlign = "right";
@@ -66,7 +64,7 @@ function makeMIhtml(menuItemName) {
 
         let newInput = document.createElement('input');
         newInput.type = "number";
-        newInput.id = menuItemName[i];
+        newInput.id = menuItemName[i].replaceAll(' ', '');
         newInput.placeholder = "Insert a sale value...";
         newInput.style.width = "40%";
         newInput.style.marginBottom = "20px";
@@ -94,25 +92,24 @@ function makeMIhtml(menuItemName) {
 function saveInput(menuItemName) {
     let arrayInput = [];
 
-    //cut the # in each array member to represent an id
-    let menuItemNameToSave = menuItemName.map(s => s.slice(1));
+
 
 
 
 
     //save all sale inputs into an array
-    for (let i = 0; i < menuItemNameToSave.length; i++) {
+    for (let i = 0; i < menuItemName.length; i++) {
 
-        let redText = document.getElementById(menuItemNameToSave[i]+namingLable);
+        let redText = document.getElementById(menuItemName[i]+"Lable");
 
 
-        if((document.getElementById(menuItemNameToSave[i]).value).length === 0){
+        if((document.getElementById(menuItemName[i].replaceAll(' ', '')).value).length === 0){
             arrayInput.push(0);
             redText.style.color = "red";
             redText.style.fontWeight = "bold";
         }
-            if (/^\d+$/.test(document.getElementById(menuItemNameToSave[i]).value)) {
-                let result = parseFloat(document.getElementById(menuItemNameToSave[i]).value);
+            if (/^\d+$/.test(document.getElementById(menuItemName[i].replaceAll(' ', '')).value)) {
+                let result = parseFloat(document.getElementById(menuItemName[i].replaceAll(' ', '')).value);
                 arrayInput.push(result);
 
                 redText.style.color = "rgb(188,155,93)";
@@ -126,7 +123,16 @@ function saveInput(menuItemName) {
             }
     }
 ////.......................................................////.....................................................////
-    console.log(arrayInput.toString());
+    let text_to_repeat = '';
+    for (let i = 0; i < menuItemName.length; i++) {
+        text_to_repeat += menuItemName[i] + "  ----------ValueSaved---------> " + arrayInput[i] +"dkk"+ "\n"
+    }
+    alert(text_to_repeat);
+
+
+
+
+
     return arrayInput;
 }
 
@@ -198,12 +204,18 @@ function searchLabels(){
 function cleanItUP(menuItemName) {
 //add a # before each array to represent an id style to use the function utilities.cleanInputFields()
     menuItemName = menuItemName.map(i => '#' + i);
-    console.log(menuItemName.toString());
-    let inputIdSelector = menuItemName.toString();
+    let resultArray=[];
 
-//utilities.cleanInputFields()
+    for (i = 0; i < menuItemName.length; i++) {
+        let str = menuItemName[i];
+        let result = str.replaceAll(' ', '');
+        resultArray.push(result);
+    }
+
+    inputIdSelector = resultArray.toString();
+    cleanInputFields()
 }
-fetchMI();
+fetchMI(makeMIhtml);
 
 
 
@@ -257,7 +269,8 @@ for (let i = 0; i < saveInput().length; i++) {
 
                     if(f == data.length & (!menuItemIdExist || menuItemIdExist & !dateExist)){
 
-                        addNewInputToDB(saveInput()[i],todayDate,inputID)
+                        let newSalleID = data.length+1
+                        addNewInputToDB(newSalleID,saveInput()[i],todayDate,inputID)
                     }
 
                 }
@@ -295,10 +308,10 @@ function updateDbTotalSell(sell,sellID){
 
 
 
-function addNewInputToDB(sell,dateOfSell,miID){
+function addNewInputToDB(newID,sell,dateOfSell,miID){
 
     let thisMethod = "POST";
-    fetch('http://localhost:8080/menu/sell/'+sellID, {
+    fetch('http://localhost:8080/menu/sell/', {
 
         method: thisMethod,
         headers: {
@@ -306,9 +319,10 @@ function addNewInputToDB(sell,dateOfSell,miID){
         },
         body: JSON.stringify(
             {
+                "id" : newID,
                 "sellPrice": sell,
                 "date": dateOfSell,
-                "id": miID
+                "menuItem : id": miID
             }
         )
     })
