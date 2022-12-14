@@ -46,6 +46,26 @@ function graphDisplayer(theLenght,arrayDbDate,arrayDbTotalSell,arrayDbMenuItemID
     arrayWeek[6] = undefined;
 
 
+    let arraySell = new Array();
+    arraySell[0] = 0;
+    arraySell[1] = 0;
+    arraySell[2] = 0;
+    arraySell[3] = 0;
+    arraySell[4] = 0;
+    arraySell[5] = 0;
+    arraySell[6] = 0;
+
+
+    let arrayMenuItem = new Array();
+    arrayMenuItem[0] = 0;
+    arrayMenuItem[1] = 0;
+    arrayMenuItem[2] = 0;
+    arrayMenuItem[3] = 0;
+    arrayMenuItem[4] = 0;
+    arrayMenuItem[5] = 0;
+    arrayMenuItem[6] = 0;
+
+
 
     /*
     let sunday = 0;
@@ -64,69 +84,48 @@ function graphDisplayer(theLenght,arrayDbDate,arrayDbTotalSell,arrayDbMenuItemID
         if (isDateInThisWeek(weekDate)){
             arrayWeek[weekDate.getDay()] = arrayDbDate[f];
 
-            let arraySell = new Array();
-            let arrayMenuItem = new Array();
-
-
-                arraySell[0] = 0;
-                arraySell[1] = 0;
-                arraySell[2] = 0;
-                arraySell[3] = 0;
-                arraySell[4] = 0;
-                arraySell[5] = 0;
-                arraySell[6] = 0;
-
-                arrayMenuItem[0] = 0;
-                arrayMenuItem[1] = 0;
-                arrayMenuItem[2] = 0;
-                arrayMenuItem[3] = 0;
-                arrayMenuItem[4] = 0;
-                arrayMenuItem[5] = 0;
-                arrayMenuItem[6] = 0;
-
-
-                for (i = 0; i < theLenght; i++) {
+                for (let i = 0; i < theLenght; i++) {
                     if (arrayDbTotalSell[i] > arraySell[0]) {
                         arraySell[0] = arrayDbTotalSell[i];
                         arrayMenuItem[0] = arrayDbMenuItemID[i];
                     }
                 }
-                for (i = 0; i < theLenght; i++) {
+                for (let i = 0; i < theLenght; i++) {
                     if (arrayDbTotalSell[i] > arraySell[1]
                         && arrayDbTotalSell[i] < arraySell[0]) {
                         arraySell[1] = arrayDbTotalSell[i];
                         arrayMenuItem[1] = arrayDbMenuItemID[i];
                     }
                 }
-                for (i = 0; i < theLenght; i++) {
+                for (let i = 0; i < theLenght; i++) {
                     if (arrayDbTotalSell[i] > arraySell[2]
                         && arrayDbTotalSell[i] < arraySell[1]) {
                         arraySell[2] = arrayDbTotalSell[i];
                         arrayMenuItem[2] = arrayDbMenuItemID[i];
                     }
                 }
-                for (i = 0; i < theLenght; i++) {
+                for (let i = 0; i < theLenght; i++) {
                     if (arrayDbTotalSell[i] > arraySell[3]
                         && arrayDbTotalSell[i] < arraySell[2]) {
                         arraySell[3] = arrayDbTotalSell[i];
                         arrayMenuItem[3] = arrayDbMenuItemID[i];
                     }
                 }
-                for (i = 0; i < theLenght; i++) {
+                for (let i = 0; i < theLenght; i++) {
                     if (arrayDbTotalSell[i] > arraySell[4]
                         && arrayDbTotalSell[i] < arraySell[3]) {
                         arraySell[4] = arrayDbTotalSell[i];
                         arrayMenuItem[4] = arrayDbMenuItemID[i];
                     }
                 }
-                for (i = 0; i < theLenght; i++) {
+                for (let i = 0; i < theLenght; i++) {
                     if (arrayDbTotalSell[i] > arraySell[5]
                         && arrayDbTotalSell[i] < arraySell[4]) {
                         arraySell[5] = arrayDbTotalSell[i];
                         arrayMenuItem[5] = arrayDbMenuItemID[i];
                     }
                 }
-                for (i = 0; i < theLenght; i++) {
+                for (let i = 0; i < theLenght; i++) {
                     if (arrayDbTotalSell[i] > arraySell[6]
                         && arrayDbTotalSell[i] < arraySell[5]) {
                         arraySell[6] = arrayDbTotalSell[i];
@@ -135,6 +134,10 @@ function graphDisplayer(theLenght,arrayDbDate,arrayDbTotalSell,arrayDbMenuItemID
                 }
         }
     }
+
+
+
+
 }
 
 
