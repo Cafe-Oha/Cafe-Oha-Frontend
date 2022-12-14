@@ -1,11 +1,11 @@
 //get today's date
 let date = new Date()
-let day = date.getDate();
-let month = date.getMonth()+1;
 let year = date.getFullYear();
+let month = date.getMonth()+1;
+let day = date.getDate();
 
-let todayDate = `${day}.${month}.${year}.`;
-//console.log(todayDate);
+let todayDate = `${year}.${month}.${day}.`;
+console.log('today date is: ' + todayDate);
 
 
 
@@ -204,3 +204,133 @@ function cleanItUP(menuItemName) {
 //utilities.cleanInputFields()
 }
 fetchMI();
+
+
+
+
+
+
+
+function fetchTotalSell() {
+
+for (let i = 0; i < saveInput().length; i++) {
+
+
+        //let inputID = saveInput()[i];
+        let inputID = i+1;
+        let dbDate;
+        let dbTotalSell;
+        let itemTotalSell;
+        let dbSellID;
+        let menuItemID;
+
+
+
+        fetch('http://localhost:8080/menu/sell')
+            .then((res) => res.json())
+            .then(data => {
+
+
+                for (let f = 0; f < data.length; f++) {
+                    let menuItemIdExist = false;
+                    let dateExist = false;
+
+
+                    dbSellID  = f+1;
+                    dbDate = data[f].date;
+                    dbTotalSell =data[f].sellPrice;
+                    //let menuItemID = data[f];
+                    menuItemID = data[f].menuItem.id;
+
+
+
+                    if (inputID = menuItemID){
+                        menuItemIdExist = true;
+                        if(dbDate == todayDate){
+                            dateExist = true;
+                            itemTotalSell = dbTotalSell + saveInput()[i];//to db
+                            updateDbTotalSell(itemTotalSell,dbSellID)
+                        }
+                    }
+
+
+
+                    if(f == data.length & (!menuItemIdExist || menuItemIdExist & !dateExist)){
+
+                        addNewInputToDB(saveInput()[i],todayDate,inputID)
+                    }
+
+                }
+            })
+            .catch(error=> console.log(error));
+
+    }
+
+
+}
+
+function updateDbTotalSell(sell,sellID){
+    let thisMethod = "PUT";
+    fetch('http://localhost:8080/menu/sell/'+sellID, {
+
+        method: thisMethod,
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(
+            {
+                "sellPrice": sell,
+            }
+        )
+    })
+        .then(res => {
+            if (!res.ok) {
+                console.log(thisMethod + " request unsuccessful")
+            }
+            return res
+        })
+        .then(res => res.json())
+        .catch(error => console.log(error))
+}
+
+
+
+function addNewInputToDB(sell,dateOfSell,miID){
+
+    let thisMethod = "POST";
+    fetch('http://localhost:8080/menu/sell/'+sellID, {
+
+        method: thisMethod,
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(
+            {
+                "sellPrice": sell,
+                "date": dateOfSell,
+                "id": miID
+            }
+        )
+    })
+        .then(res => {
+            if (!res.ok) {
+                console.log(thisMethod + " request unsuccessful")
+            }
+            return res
+        })
+        .then(res => res.json())
+        .catch(error => console.log(error))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
