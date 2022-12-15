@@ -7,6 +7,8 @@ const editInvForm = document.querySelector('#editInvForm');
 const deleteBtn = document.querySelector('#deleteBtn');
 const editBtn = document.querySelector('#editBtn');
 const editName = document.querySelector('#editName');
+const closeBtn = document.querySelector('.close-btn');
+const editInputs = document.querySelectorAll('.editInput');
 
 
 //display all ingredients in table
@@ -22,11 +24,44 @@ fetch('http://localhost:8080/ingredients')
     });
 
     //click on cell to display cancel or edit
-    document.querySelectorAll('td')
-        .forEach(td => td.addEventListener("click", function() {
-            console.log("clicked on cell");
+    document.querySelectorAll('tr')
+        .forEach(tr => tr.addEventListener("click", function() {
             toggleHide(editInvForm);
-            editName.value = td.valueOf();
+            const ingredientName = tr.cells[0].innerHTML;
+
+            //displays edited values in inputs
+            editInputs.forEach((element,i) => {
+                element.value = tr.cells[i].innerHTML;
+                i++;
+            })
+
+            //update ingredient
+            editBtn.addEventListener('click', () => {
+                const name = document.querySelector('#editName').value;
+                const quantity = document.querySelector('#editQuantity').value;
+                const unit = document.querySelector('#editUnit').value;
+
+                console.log(document.querySelector('#editName').value);
+
+                const updated = {
+                    name: name,
+                    quantity: quantity,
+                    unit: unit
+                }
+
+                fetch('http://localhost:8080/ingredients/edit/'+ingredientName,{
+                    method: 'PUT',
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updated)
+                })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.log(error));
+                window.location.reload();
+
+            });
             toggleHide(editBtn);
             toggleHide(deleteBtn);
         }));
@@ -34,16 +69,16 @@ fetch('http://localhost:8080/ingredients')
     .catch(err => console.error(err));
 
 
+
 //adding ingredients
-formAdd.addEventListener('submit', event => {
-    event.preventDefault();
+formAdd.addEventListener('submit', () => {
 
     const formData = new FormData(formAdd);
     const data = Object.fromEntries(formData);
 
-    fetch('http://localhost:8080/ingredients', {
+    fetch('http://localhost:8080/ingredients/',{
         method: 'POST',
-        headers: {
+        headers:{
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
@@ -53,19 +88,20 @@ formAdd.addEventListener('submit', event => {
         .catch(error => console.log(error));
 });
 
-/*
-deleteBtn.addEventListener('click',() =>{
 
-    fetch('http://localhost:8080/ingredients',{
+//delete by name
+deleteBtn.addEventListener('click',(name) =>{
+    //gets name value from input field
+    name=document.querySelector('#editName').value;
+    console.log(document.querySelector('#editName').value);
+
+    fetch('http://localhost:8080/ingredients/delete/'+name,{
         method: 'DELETE'
     })
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.log(error));
-
 });
-
-*/
 
 
 
@@ -90,3 +126,4 @@ const toggleHide = function(btn) {
         btn.style.display = 'block';
     }
 }
+
