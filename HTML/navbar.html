@@ -1,0 +1,163 @@
+<div class="header">
+    <div class="left-section">
+
+        <a href="../HTML/login.html">
+            <img class="cafe-logo" src="../resources/oha_logo1.jpg">
+        </a>
+    </div>
+</div>
+
+<ul class="menu">
+    <li><a href="#">Menu Item</a>
+        <ul class="feat-show">
+            <li><a href="menuItem2.html">Prep Menu</a></li>
+            <li><a href="menuItem.html">Main Menu</a></li>
+        </ul>
+    </li>
+    <li><a href="../HTML/inventory.html">Inventory
+
+    </a></li>
+    <li><a href="../HTML/profit.html">Profit</a></li>
+    <li><a href="../HTML/sales.html">Sales</a></li>
+    <li><a href="costOfGoods.html">Cost of Goods</a></li>
+    <li><a href="menuUser.html" >Manage User
+        <span> > </span>
+    </a>
+        <ul class="feat-show">
+            <li><a href="#">Admin</a></li>
+            <li><a href="#">Staff</a></li>
+        </ul>
+    </li>
+</ul>
+<style>
+    body{
+        height: 3000px;
+        margin:0;
+        padding-top: 80px;
+        padding-left: 0px;
+        padding-right: 24px;
+        background-color:rgb(236, 236, 236);
+    }
+    section{
+        width:80vw;
+        margin:5% auto;
+        padding-top:40px;
+        text-align:center;
+        line-height:25px;
+
+    }
+    .header{
+        height:80px;
+        display: flex;
+        flex-direction:row;
+        justify-content:space-between;
+
+        cursor: pointer;
+
+        position:fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+
+        background-color: white;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(227, 220, 220);
+
+    }
+    .left-section{
+        display:flex;
+        align-items:center;
+    }
+
+    .cafe-logo{
+        height:60px;
+        border-radius: 28px;
+        margin-left:15px;
+        transition: box-shadow 0.15s;
+    }
+
+
+    text{
+        color: #ffffff;
+        font-size:25px;
+        font-weight:600;
+        line-height:65px;
+        text-align: left;
+        letter-spacing: 25px;
+
+    }
+
+    .menu{
+        position: fixed;
+        left:0;
+        bottom:0;
+        top: 65px;
+        background-color: rgb(5,77,48);
+        width: 120px;
+        z-index:200;
+        padding-top:5px;
+        padding-left: 1px;
+        padding-right: 10px;
+    }
+
+
+   .menu ul{
+        height: 100%;
+        width:100%;
+        list-style:none;
+        padding-left:5px;
+    }
+    .menu li{
+        line-height: 50px;
+        border-bottom: 1px solid rgb(255, 255, 255, 0.1);
+    }
+    .menu li a{
+        position:relative;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 16px;
+        font-family: futura-lt-w01-book, sans-serif;
+        padding-left:4px;
+        font-weight: 500;
+        display: block;
+        width:100%;
+        border-left:3px solid transparent;
+
+    }
+    .menu li.active a{
+        color:rgb(5,77,48);
+        background: #ffffff;
+        border-left-color:darkcyan;
+    }
+    .menu li a:hover{
+        color:rgb(5,77,48);
+        background: #ffffff;
+        border-left-color:darkcyan;
+    }
+    .menu .feat-show li{
+        line-height: 40px;
+        border-bottom: none;
+        padding-right:20px;
+    }
+   .menu .feat-show li a{
+        font-size: 17px;
+        color:#ffffff;
+        padding-left: 10px;
+
+    }
+  .menu .feat-show li a span{
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        font-size: 20px;
+        transition: transform 0.4s;
+    }
+    .menu .feat-show li a span rotate{
+        transform: translateY(-50%) rotate(-180deg);
+    }
+
+
+
+</style>

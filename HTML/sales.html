@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales</title>
+
+    <!--comment-->
+    <script src="https//kit.fontawesome.com/57b929fbcb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../resources">
+    <!--Global CSS-->
+    <link rel="stylesheet" href="../CSS/global.css">
+    <!--Sales page CSS-->
+    <link rel="stylesheet" href="../CSS/sales.css">
+
+
+</head>
+<body>
+<!--Web page security JS-->
+<script src="../JS/Service/privateWeb.js"></script>
+<!--Dashboard-->
+<nav class="navbar"></nav>
+<!--Sales page-->
+<section>
+    <p class="title">Sales</p>
+
+    <div class="bestSellers"><p class="title subTitle">Best Sellers</p>
+
+        <canvas class="chartCanvas" id="bestSellersChartID"></canvas>
+
+
+    </div>
+    <div class="saleHistory"><p class="title subTitle">Sale History</p>
+
+        <canvas class="chartCanvas" id="saleHistoryChartID"></canvas>
+
+
+
+    </div>
+
+
+    <div class="miSale">
+        <p class="title subTitle" id="miSaleID">Menu Items Sale</p>
+        <p class="title subTitle" id="miMonthSaleID">Month</p>
+        <canvas id="miSalesTableID"></canvas>
+
+        <!--insertSales page-->
+        <div id="addSalesContainer"></div>
+        <!-- <button class="button" id="addButton" onclick="window.location.href='http://localhost:63342/CafeOha/Cafe-Oha-Frontend/HTML/insertSales.html?_ijt=9vof9hgojd1lgvo93dkvvspvsm&_ij_reload=RELOAD_ON_SAVE';">Add</button>
+-->
+    </div>
+
+
+</section>
+
+<!--Chart library JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<!--Sales JS-->
+<script src="../JS/sales.js"></script>
+<!--Dashboard JS-->
+<script src="../JS/dashboard.js"></script>
+<!--Utilities JS-->
+<script src="../JS/Service/Utilities.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+.title{
+    float: top;
+    height: 5%;
+}
+
+.bestSellers{
+    float: left;
+    width: 50%;
+    height: 40%;
+}
+
+.saleHistory{
+    float: right;
+    width: 50%;
+    height: 40%;
+}
+
+.miSale{
+    height: 55%;
+}
+#miSaleID{
+    float: left;
+    width: 60%;
+    text-align: right;
+}
+
+#miMonthSaleID{
+    float: right;
+    width: 37%;
+    text-align: left;
+    color: rgb(5,77,48);
+    font-weight: bold;
+}
+
+.chartCanvas{
+    width: 80%;
+}
+
+#miSalesTableID{
+    width: 100%;
+}
+
+#addButton{
+    float: right;
+}
+
+/***********************************************insertSalesPage********************************************************/
+.salesNavigator{
+    float: right;
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+}
+
+#searchBarLabel{
+    color:rgb(5,77,48);
+}
+
+#myUL {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+#myUL li a {
+    text-decoration: none;
+    cursor: default;
+}
+label{
+    color: rgb(188,155,93);
+}
+/***********************************************insertSalesPage********************************************************/

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script
+            src="https://code.jquery.com/jquery-3.6.1.js"
+            integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../CSS/global.css"  media="screen">
+    <link rel="stylesheet" type="text/css" href="../CSS/instructions.css" media="screen">
+    <!-- script src="../JS/editMenuItem.js" defer></script -->
+
+    <title>Instructions</title>
+</head>
+<body>
+<div id="cont"></div>
+
+<div id="bluebox">
+    <h1> Recipes and Instructions</h1>
+
+    <div id="topBar">
+
+        <button class="btn small-btn deleteButton" id="deleteMenuItemBtn" > <img src="../resources/cancel-icon.png"> Delete </button>
+        <button class="btn small-btn editButton" id="editMenuItemBtn"> <img src="../resources/edit-icon.png"> Edit </button>
+
+        <form action="menuItem2.html">
+            <button class="btn small-btn backButton" > <img src="../resources/back-icon.png">  Back </button>
+        </form>
+    </div>
+
+        <div id="menuTitle">
+            <h1 class="menuTitle">Recipes</h1>
+        </div>
+
+
+
+    <div id="ingredient">
+        <h2 class="ingredient">Ingredients</h2>
+        <ol class="ingredient-list">
+
+        </ol>
+    </div>
+
+
+    <div id="descriptionTitle">
+        <h2 class="descriptionTitle">Instructions</h2>
+    </div>
+
+
+</div>
+
+<!--moved it here so it works after DOM is loaded -->
+<script src="../JS/instructions.js" type="module" defer></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert sales</title>
+    <!--Global CSS-->
+    <link rel="stylesheet" href="../CSS/global.css">
+    <!--Sales CSS-->
+    <link rel="stylesheet" href="../CSS/sales.css">
+
+</head>
+<body>
+<!--Web page ADMIN security JS-->
+<script src="../JS/Service/privateAdmin.js"></script>
+
+    <p class="title">Menu Items Sales</p>
+<!--Sales Navigator div-->
+<div class="salesNavigator">
+    <img src="../resources/oha_logo1.jpg" alt="logo">
+    <br>
+    <br>
+    <br>
+    <!--Buttons list-->
+        <button class="button" onclick="window.location.href='http://localhost:63342/Cafe-Oha-Frontend/HTML/sales.html?_ijt=7nhi4td1s35aebok85c6f8pln9&_ij_reload=RELOAD_ON_SAVE'">Back</button>
+        <button class="button" onclick="fetchMI(cleanItUP);">Clear</button>
+        <button class="button" onclick="fetchMI(saveInput); fetchMI(cleanItUP);" >Save</button>
+    <br>
+    <br>
+    <br>
+
+
+    <!--Search Bar-->
+    <div class="search">
+        <label for="searchBarID" id="searchBarLabelID">Search an Menu Item:</label>
+        <input type="text" id="searchBarID" onkeyup="searchLabels()" placeholder="Search...">
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--location of the input js build html-->
+<ul id="myUL">
+
+    <div id="inputContainer" style="width: 1050px"></div>
+
+</ul>
+
+<!--Utilities JS-->
+    <script src="../JS/Service/Utilities.js"></script>
+<!--insertSales JS-->
+<script src="../JS/insertSales.js"></script>
+
+</body>
+</html>
