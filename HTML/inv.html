@@ -6,23 +6,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <link rel="stylesheet" href="../CSS/inv.css">
-    <link rel="stylesheet" href="../HTML/navbar.html">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></script>
 
 </head>
 <body>
+<script src="../JS/Service/privateWeb.js"></script>
 
-<nav class="navbar"></nav>
-<section>
-    <div id="body">
 <h1> Inventory </h1>
 <!-- idk why it works and everything the same on inventory.html doesnt -->
 <table id="inventoryTable" class="sortable styled-table">
     <thead>
     <tr>
-        <th id="name-th">Name</th>
+        <th id="name-th" >Name</th>
         <th id="quant-th">Quantity</th>
-        <th id="unit-th">Unit</th>
+        <th id="unit-th" >Unit</th>
+
     </tr>
     </thead>
     <tbody></tbody>
@@ -31,12 +29,12 @@
 </br>
 <form class="forms" id="addInvForm">
 
-   <div class="form-title">
+    <div class="form-title">
       <span>
        Add<button class="icon-btn" onclick="closeForm()" ><i class="fa-regular fa-circle-xmark" ></i></button>
 
        </span>
-   </div>
+    </div>
 
     <label>Name: <input name="name" type="text" placeholder="Enter ingredient name" required>
     </label>
@@ -52,26 +50,28 @@
 <form class="forms" id="editInvForm">
     <div class="form-title">
      <span>
-       Edit [x] <button class="icon-btn" onclick="closeForm()" ><i class="fa-regular fa-circle-xmark" ></i></button>
+       Edit or Delete <button class="icon-btn" onclick="closeForm()" ><i class="fa-regular fa-circle-xmark" ></i></button>
        </span>
     </div>
 
 
-    <label>Name: <input id="editName" name="name" type="text"  placeholder="Edit name">
+    <label>Name:
+        <input id="editName" class="editInput" name="name" type="text" value="value" placeholder="Edit Name">
     </label>
-    <label>Quantity: <input id="editQuantity" name="quantity" type="text"  placeholder="Edit quantity">
+    <label>Quantity:
+        <input id="editQuantity" class="editInput" name="quantity" type="text" placeholder="Edit Quantity">
     </label>
-    <label>Unit: <input id="editUnit" name="unit" type="text"  placeholder="Edit type of quantity">
+    <label>Unit:
+        <input id = "editUnit" class="editInput" name="unit" type="text" placeholder="Edit type of unit">
     </label>
 
-    <input id="deleteBtn " class="deleteBtn  btns" type="button" value="Delete"/>
-    <input id="editBtn " class=" editBtn btns" type="button" value="Save"/>
+    <button id = "deleteBtn" class=" btns edit-del close-btn" type="submit">Delete</button>
+    <button id = "editBtn" class="btns edit-save" type="submit">Save</button>
+
 
 </form>
-    </div>
-</section>
+
 <script src="../JS/inv.js"></script>
-<script src="../JS/dashboard.js"></script>
 <script src="https://kit.fontawesome.com/6803008f19.js" crossorigin="anonymous"></script>
 
 </body>
