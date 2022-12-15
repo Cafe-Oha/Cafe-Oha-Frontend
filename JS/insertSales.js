@@ -152,8 +152,8 @@ function saveInput(menuItemName) {
                     dbTotalSell = data[f].sellPrice;
                     //let menuItemID = data[f];
                     menuItemID = data[f].menuItem.id;
-                    //console.log(inputID)
-                    //console.log(data[f].menuItem.id)
+                    console.log(inputID)
+                    console.log(data[f].menuItem.id)
 
 
                     if (inputID == menuItemID) {
@@ -169,7 +169,7 @@ function saveInput(menuItemName) {
 
 
                     if (f == data.length-1 & (!menuItemIdExist || (menuItemIdExist & !dateExist))) {
-                        console.log("works till here :)")
+                        //console.log("works till here :)")
 
                         let newSalleID = data.length + 1
                         addNewInputToDB(newSalleID, arrayInput[i], todayDate, inputID)
